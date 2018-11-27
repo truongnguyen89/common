@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
  */
 public class StringCommon {
 
-    private static final Logger LOGGER = LogManager.getLogger(Constant.LOG_APPENDER.COMMON);
     private static char[] NOSIGN = new char["aaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyyAAAAAAAAAAAAAAAAADEEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYY".length()];
 
     /**
@@ -87,5 +86,17 @@ public class StringCommon {
         }
 
         return false;
+    }
+
+    /**
+     *
+     * @param str
+     * @return reverse of String input
+     */
+    public static String reverse(String str) {
+        if (isNullOrBlank(str))
+            return str;
+        else
+            return new StringBuffer(str).reverse().toString();
     }
 }

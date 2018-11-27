@@ -3,7 +3,6 @@ package com.football.common.test;/*
  * and open the template in the editor.
  */
 
-import com.football.common.constant.Constant;
 import com.football.common.email.EmailCommon;
 import com.football.common.email.GmailCommon;
 import com.football.common.file.FileCommon;
@@ -37,8 +36,10 @@ public class TestCommon {
 //        System.out.println(responseCode2description("FILE_DOES_NOT_EXIST"));
 //        System.out.println(description2responseCode("Required parameters may not be left blank"));
 
-        System.out.println(Response.OBJECT_NOT_FOUND.toString());
-
+//        System.out.println(Response.OBJECT_NOT_FOUND.toString());
+        String string = "abcdef";
+        System.out.println("String before reverse:" + string);
+        System.out.println("String after reverse:" + StringCommon.reverse(string));
     }
 
     public static Response FileCommon_writeTextFile() throws ClassNotFoundException {

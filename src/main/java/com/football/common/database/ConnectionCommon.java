@@ -5,9 +5,6 @@ import com.football.common.model.common.PassThroughArray;
 import com.football.common.util.DateCommon;
 import com.football.common.util.StringCommon;
 import com.jolbox.bonecp.ConnectionHandle;
-import oracle.jdbc.driver.OracleConnection;
-import oracle.sql.ARRAY;
-import oracle.sql.ArrayDescriptor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -222,42 +219,5 @@ public class ConnectionCommon {
         } else {
             cs.setInt(index, value);
         }
-    }
-
-    /**
-     * Convert String array to ARRAY
-     */
-    public static ARRAY getPassThroughArray(String[] strArray, Connection conn) {
-        ARRAY array = null;
-        try {
-            PassThroughArray passArr = new PassThroughArray("STRING_ARRAY", strArray);
-            if ((conn instanceof ConnectionHandle)) {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), ((ConnectionHandle) conn).getInternalConnection()), ((ConnectionHandle) conn).getInternalConnection(), passArr.getArray());
-            } else if ((conn instanceof OracleConnection)) {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), conn), conn, passArr.getArray());
-            } else {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), conn.getMetaData().getConnection()), conn.getMetaData().getConnection(), passArr.getArray());
-            }
-        } catch (SQLException e) {
-            LOGGER.error("Exception when passing array: ", e);
-        }
-        return array;
-    }
-
-    public static ARRAY getPassThroughArray(Long[] idArray, Connection conn) {
-        ARRAY array = null;
-        try {
-            PassThroughArray passArr = new PassThroughArray("NUMBER_ARRAY", idArray);
-            if ((conn instanceof ConnectionHandle)) {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), ((ConnectionHandle) conn).getInternalConnection()), ((ConnectionHandle) conn).getInternalConnection(), passArr.getArray());
-            } else if ((conn instanceof OracleConnection)) {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), conn), conn, passArr.getArray());
-            } else {
-                array = new ARRAY(new ArrayDescriptor(passArr.getNameType(), conn.getMetaData().getConnection()), conn.getMetaData().getConnection(), passArr.getArray());
-            }
-        } catch (Throwable e) {
-            LOGGER.error("Exception when passing array: ", e);
-        }
-        return array;
     }
 }
