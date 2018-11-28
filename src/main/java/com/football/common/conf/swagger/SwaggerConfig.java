@@ -55,7 +55,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                 .globalOperationParameters(parameters)
-                .select().apis(RequestHandlerSelectors.basePackage("com.ecpay"))
+                .select().apis(RequestHandlerSelectors.basePackage("com.football"))
                 .build();
     }
 
