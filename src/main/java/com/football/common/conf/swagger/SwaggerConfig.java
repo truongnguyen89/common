@@ -38,20 +38,20 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     public Docket productApi() {
 
         List<Parameter> parameters = new ArrayList<>();
-        parameters.add(new ParameterBuilder()
-                .name(Constant.HEADER.AGENT)
-                .defaultValue(Constant.AGENT.ADMIN)
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(true)
-                .build());
-        parameters.add(new ParameterBuilder()
-                .name(Constant.HEADER.PASSWORD)
-                .defaultValue(Constant.HEADER.PASSWORD)
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(true)
-                .build());
+//        parameters.add(new ParameterBuilder()
+//                .name(Constant.HEADER.AGENT)
+//                .defaultValue(Constant.AGENT.ADMIN)
+//                .modelRef(new ModelRef("string"))
+//                .parameterType("header")
+//                .required(true)
+//                .build());
+//        parameters.add(new ParameterBuilder()
+//                .name(Constant.HEADER.PASSWORD)
+//                .defaultValue(Constant.HEADER.PASSWORD)
+//                .modelRef(new ModelRef("string"))
+//                .parameterType("header")
+//                .required(true)
+//                .build());
 
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                 .globalOperationParameters(parameters)
@@ -70,8 +70,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("truongnguyen micro-services",
-                "Service for eStore",
+        return new ApiInfo("micro-services",
+                "WS test",
                 "1.0.0",
                 null,
                 "truongnguyen@gmail.com", "", "");

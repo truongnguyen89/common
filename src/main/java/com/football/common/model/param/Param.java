@@ -1,10 +1,13 @@
 package com.football.common.model.param;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.football.common.constant.Constant;
 import com.football.common.util.JsonCommon;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author : TruongNQ
@@ -15,6 +18,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = Constant.TABLE.PARAM)
 @EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
+        allowGetters = true)
 public class Param {
     @Id
     @GeneratedValue
@@ -24,10 +29,14 @@ public class Param {
     private String value;
     @Column(name = "s_name", nullable = true)
     private String name;
-    @Column(name = "s_value_alt", nullable = true)
-    private String valueAlt;
-    @Column(name = "b_status", nullable = false)
+    @Column(name = "n_status", nullable = false)
     private Integer status;
+    @Column(name = "d_created_at")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
+    private Date createdAt;
+    @Column(name = "d_updated_at")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
+    private Date updatedAt;
 
     public ParamKey getParamKey() {
         return paramKey;
@@ -53,20 +62,22 @@ public class Param {
         this.name = name;
     }
 
-    public String getValueAlt() {
-        return valueAlt;
-    }
-
-    public void setValueAlt(String valueAlt) {
-        this.valueAlt = valueAlt;
-    }
-
     public Integer getStatus() {
         return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @PrePersist
+    public void setCreatedAt() {
+        this.createdAt = new Date();
+    }
+
+    @PreUpdate
+    public void setUpdatedAt() {
+        this.updatedAt = new Date();
     }
 
     @Override

@@ -206,7 +206,11 @@ public interface Constant {
         public static final String API = "api";
         public static final String ROLES = "roles";
         public static final String USER = "user";
-        public static final String CUSTOMER_FINANCE = "customer_finance";
+        public static final String STADIUM = "stadium";
+        public static final String SUB_STADIUM = "sub_stadium";
+        public static final String STADIUM_MANAGER = "stadium_manager";
+        public static final String BOOKING = "booking";
+        public static final String BOOKING_LOG = "booking_log";
         public static final String LOG = "log";
         public static final String NOTIFICATION_CATEGORY = "notification_category";
         public static final String NOTIFICATION = "notification";
