@@ -205,6 +205,7 @@ public interface Constant {
         public static final String AGENT = "agent";
         public static final String API = "api";
         public static final String ROLES = "roles";
+        public static final String USER = "user";
         public static final String CUSTOMER_FINANCE = "customer_finance";
         public static final String LOG = "log";
         public static final String NOTIFICATION_CATEGORY = "notification_category";
