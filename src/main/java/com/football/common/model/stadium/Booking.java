@@ -20,8 +20,8 @@ public class Booking {
     private Long id;
     @Column(name = "n_player_id")
     private Long playerId;
-    @Column(name = "n_manager_id")
-    private Long managerId;
+    @Column(name = "n_sub_stadium_id")
+    private Long subStadiumId;
     @Column(name = "n_type")
     private Integer type;
     @Column(name = "n_status")
@@ -49,12 +49,12 @@ public class Booking {
         this.playerId = playerId;
     }
 
-    public Long getManagerId() {
-        return managerId;
+    public Long getSubStadiumId() {
+        return subStadiumId;
     }
 
-    public void setManagerId(Long managerId) {
-        this.managerId = managerId;
+    public void setSubStadiumId(Long subStadiumId) {
+        this.subStadiumId = subStadiumId;
     }
 
     public Integer getType() {
