@@ -31,6 +31,8 @@ public class Booking {
     private Integer status;
     @Column(name = "n_created_user_id")
     private Long createdUserId;
+    @Column(name = "s_comment")
+    private String comment;
     @Column(name = "d_created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
@@ -92,6 +94,14 @@ public class Booking {
 
     public void setCreatedUserId(Long createdUserId) {
         this.createdUserId = createdUserId;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public Date getCreatedAt() {
