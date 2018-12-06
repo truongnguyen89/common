@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity
 @Table(name = Constant.TABLE.BOOKING_LOG)
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
+@JsonIgnoreProperties(value = {"createdAt"},
         allowGetters = true)
 public class BookingLog {
     @Id
@@ -24,14 +24,13 @@ public class BookingLog {
     private Long userId;
     @Column(name = "s_reason")
     private String reason;
-    @Column(name = "n_status")
-    private Integer status;
+    @Column(name = "n_status_old")
+    private Integer statusOld;
+    @Column(name = "n_status_new")
+    private Integer statusNew;
     @Column(name = "d_created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
-    @Column(name = "d_updated_at")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
-    private Date updatedAt;
 
     public Long getId() {
         return id;
@@ -65,12 +64,20 @@ public class BookingLog {
         this.reason = reason;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStatusOld() {
+        return statusOld;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStatusOld(Integer statusOld) {
+        this.statusOld = statusOld;
+    }
+
+    public Integer getStatusNew() {
+        return statusNew;
+    }
+
+    public void setStatusNew(Integer statusNew) {
+        this.statusNew = statusNew;
     }
 
     public Date getCreatedAt() {
@@ -81,21 +88,9 @@ public class BookingLog {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     @PrePersist
     public void setCreatedAt() {
         this.createdAt = new Date();
     }
 
-    @PreUpdate
-    public void setUpdatedAt() {
-        this.updatedAt = new Date();
-    }
 }

@@ -8,20 +8,16 @@ VALUES ('truongnq3', '123456', 'Nguyễn Quang Trường 3', 'truongnq3@gmail.co
 INSERT INTO user (`s_username`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `d_created_at`)
 VALUES ('truongnq4', '123456', 'Nguyễn Quang Trường 4', 'truongnq4@gmail.com', '0962266682', 'Hà Nội', '1', '1', sysdate());
 /*---params---*/
-INSERT INTO `params`
-(`s_type`,
-`s_code`,
-`s_name`,
-`s_value`,
-`n_status`,
-`d_created_at`)
-VALUES
-('TYPE',
-'CODE',
-'NAME',
-'1',
-1,
-sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('PRICE','SANG','Giá buổi sáng','400000',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('PRICE','TRUA','Giá buổi trưa','500000',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('PRICE','CHIEU','Giá buổi chiều','600000',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('PRICE','VANG','Giá giờ vàng','800000',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('PRICE','TOI','Giá buổi tối','700000',1,sysdate());
 
 /*---stadium---*/
 INSERT INTO `stadium` (`s_name`,`s_address`,`s_email`,`s_phone`,`s_longitude`,`s_latitude`,`n_count_sub_stadium`,`n_type`,`n_status`,`d_created_at`,`d_updated_at`)
