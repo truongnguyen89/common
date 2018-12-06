@@ -84,6 +84,7 @@ public interface Constant {
         interface FORMAT {
             public static final String SHORT_DATE = "dd/MM/yyyy";
             public static final String FULL_DATE = "dd/MM/yyyy HH:mm:ss";
+            public static final String MINUTE_TIME = "HH:mm";
             public static final String FULL_DATE_SSS = "dd/MM/yyyy HH:mm:ss.SSS";
             public static final String TIME_STAMP = "yyyyMMddHHmmssSSS";
             public static final String TERM_DATE = "MM/yyyy";
@@ -211,6 +212,8 @@ public interface Constant {
         public static final String STADIUM_MANAGER = "stadium_manager";
         public static final String BOOKING = "booking";
         public static final String BOOKING_LOG = "booking_log";
+        public static final String MATCH_SCHEDULE = "match_schedule";
+        public static final String MATCH = "match";
         public static final String LOG = "log";
         public static final String NOTIFICATION_CATEGORY = "notification_category";
         public static final String NOTIFICATION = "notification";
