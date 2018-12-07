@@ -116,10 +116,37 @@ public interface Constant {
             public static final String EPAY_FINANCE = "EPAY_FINANCE";
             public static final String NOTIFICATION = "NOTIFICATION";
             public static final String ONE_SIGNAL = "ONE_SIGNAL";
+            public static final String AGENT = "agent";
+            public static final String API = "api";
+            public static final String ROLES = "roles";
+            public static final String USER = "user";
+            public static final String STADIUM = "stadium";
+            public static final String SUB_STADIUM = "sub_stadium";
+            public static final String STADIUM_MANAGER = "stadium_manager";
+            public static final String BOOKING = "booking";
+            public static final String BOOKING_LOG = "booking_log";
+            public static final String MATCH_SCHEDULE = "match_schedule";
+            public static final String MATCH = "match";
+            public static final String LOG = "log";
+            public static final String NOTIFICATION_CATEGORY = "notification_category";
+            public static final String NOTIFICATION_QUEUE = "notification_queue";
+            public static final String NOTIFICATION_LOG = "notification_log";
+            public static final String ACCOUNT_APP_DEVICE = "account_app_device";
+            public static final String DEVICE = "device";
+            public static final String APP = "app";
         }
 
         interface CODE {
 
+            public static final String TYPE = "TYPE";
+            public static final String STATUS = "STATUS";
+            public static final String STATUS_ACTIVE = "STATUS_ACTIVE";
+            public static final String STATUS_INACTIVE = "STATUS_INACTIVE";
+            public static final String STATUS_LOCK = "STATUS_LOCK";
+            public static final String STATUS_NEW = "STATUS_NEW";
+            public static final String STATUS_MANAGER_AGREE = "STATUS_MANAGER_AGREE";
+            public static final String STATUS_CANCEL = "STATUS_CANCEL";
+            public static final String STATUS_MANAGER_REFUSE = "STATUS_MANAGER_REFUSE";
             public static final String ACCOUNT = "ACCOUNT";
             public static final String PASS = "PASS";
             public static final String HOST = "HOST";
@@ -300,6 +327,7 @@ public interface Constant {
     }
 
     interface FEIGN_CLIENT {
+        public static final String SERVICE_CATEGORY = "category";
         public static final String SERVICE_DATABASE = "ecpay-database";
         public static final String SERVICE_FINANCE = "ecpay-finance";
         public static final String ECPAY_SCHEDULER = "ecpay-scheduler";

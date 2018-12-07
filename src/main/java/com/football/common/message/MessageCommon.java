@@ -25,4 +25,12 @@ public class MessageCommon {
         }
         return msgPattern;
     }
+
+    public static String getMessage(String msgPattern, String field, String object) {
+        if (!StringCommon.isNullOrBlank(msgPattern) && !StringCommon.isNullOrBlank(field) && !StringCommon.isNullOrBlank(object)) {
+            Object[] a = {field, object};
+            msgPattern = MessageFormat.format(msgPattern, a);
+        }
+        return msgPattern;
+    }
 }

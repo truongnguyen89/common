@@ -23,14 +23,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Time: 2:04 PM
  * To change this template use File | Settings | File Templates.
  */
-@FeignClient(Constant.FEIGN_CLIENT.SERVICE_DATABASE)
-public interface DatabaseServiceFeignAPI {
-    String URL_PATH_PARAM = "/api/database/param/";
-    String URL_PATH_AGENT = "/api/database/agent/";
-    String URL_PATH_API = "/api/database/api/";
-    String URL_PATH_ROLES = "/api/database/roles/";
-    String URL_PATH_ACCOUNT = "/api/database/account/";
-    String URL_PATH_CUSTOMER = "/api/database/customer/";
+@FeignClient(Constant.FEIGN_CLIENT.SERVICE_CATEGORY)
+public interface CategoryServiceFeignAPI {
+    String URL_PATH_PARAM = "/api/category/param/";
+    String URL_PATH_AGENT = "/api/category/agent/";
+    String URL_PATH_API = "/api/category/api/";
+    String URL_PATH_ROLES = "/api/category/roles/";
+    String URL_PATH_ACCOUNT = "/api/category/account/";
+    String URL_PATH_CUSTOMER = "/api/category/customer/";
 
     @RequestMapping(path = URL_PATH_PARAM + "status/{status}", method = GET)
     List<Param> findParamByStatus(@RequestHeader(Constant.HEADER.AGENT) String agentCode,

@@ -33,6 +33,19 @@ public class DateCommon {
         }
     }
 
+    public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date) {
+        if (date == null)
+            return null;
+        else {
+            try {
+                return new java.sql.Date(date.getTime());
+            } catch (Exception e) {
+                LOGGER.error("Exception when convertUtilDateToSqlDate", e);
+                return null;
+            }
+        }
+    }
+
     public static Date convertStringToDate(String strTime, String pattern) {
         return convertStringToDateByPattern(strTime, Constant.DATE.FORMAT.SHORT_DATE);
     }

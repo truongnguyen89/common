@@ -8,6 +8,22 @@ VALUES ('truongnq3', '123456', 'Nguyễn Quang Trường 3', 'truongnq3@gmail.co
 INSERT INTO user (`s_username`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `d_created_at`)
 VALUES ('truongnq4', '123456', 'Nguyễn Quang Trường 4', 'truongnq4@gmail.com', '0962266682', 'Hà Nội', '1', '1', sysdate());
 /*---params---*/
+/*---Cau hinh cho cac column cua bang user---*/
+/*---USER.type---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','TYPE_ADMIN','Admin','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','TYPE_PLAYER','Người chơi','2',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','TYPE_MANAGER','Người quản lý sân','2',1,sysdate());
+/*---USER.status---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','STATUS_ACTIVE','Đang hoạt động','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','STATUS_INACTIVE','Không hoạt động','0',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('USER','STATUS_LOCK','Bị khóa','2',1,sysdate());
+/*---Gia cho cac khung gio, bang match.price---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('PRICE','SANG','Giá buổi sáng','400000',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
@@ -18,7 +34,21 @@ INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created
 VALUES('PRICE','VANG','Giá giờ vàng','800000',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('PRICE','TOI','Giá buổi tối','700000',1,sysdate());
-
+/*---Cau hinh cho cac column cua bang booking---*/
+/*---booking.type---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','TYPE_PLAYER_BOOKING','Người chơi đặt sân','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','TYPE_MANAGER_BOOKING','Quản lý đặt sân','2',1,sysdate());
+/*---booking.status---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','STATUS_NEW','Yêu cầu đặt sân','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','STATUS_MANAGER_AGREE','Quản lý sân đã nhận','2',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','STATUS_CANCEL','Hủy yêu cầu đặt sân','3',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('BOOKING','STATUS_MANAGER_REFUSE','Quản lý từ chối đặt sân','4',1,sysdate());
 /*---stadium---*/
 INSERT INTO `stadium` (`s_name`,`s_address`,`s_email`,`s_phone`,`s_longitude`,`s_latitude`,`n_count_sub_stadium`,`n_type`,`n_status`,`d_created_at`,`d_updated_at`)
 VALUES ('Sân bóng Thành Phát','Hoàng Minh Giám','thanhphat@gmail.com','0989666777','21.898989','105.787878',4,1,1,sysdate(),NULL);
