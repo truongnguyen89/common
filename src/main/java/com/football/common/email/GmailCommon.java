@@ -6,18 +6,24 @@ import javax.activation.FileDataSource;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.Transport;
+import javax.mail.internet.*;
 import java.io.*;
 import java.util.*;
 
+import com.football.common.cache.Cache;
+import com.football.common.constant.Constant;
+import com.football.common.response.Response;
+import com.football.common.util.StringCommon;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GmailCommon {
+
+    private static final Logger LOGGER = LogManager.getLogger(Constant.LOG_APPENDER.EMAIL);
 
     /**
      * Create a MimeMessage using the parameters provided.
@@ -104,5 +110,63 @@ public class GmailCommon {
         System.out.println("Message id: " + message.getId());
         System.out.println(message.toPrettyString());
         return message;
+    }
+
+    public static Response send(String recipient, String subject, String contents) {
+        long id = System.currentTimeMillis();
+        LOGGER.info("[B][" + id + "] Gmail.send >>> " + subject);
+        String account = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.GMAIL, Constant.PARAMS.CODE.ACCOUNT);
+        account = StringCommon.isNullOrBlank(account) ? "ecpay.it" : account;
+        String pass = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.GMAIL, Constant.PARAMS.CODE.PASS);
+        pass = StringCommon.isNullOrBlank(pass) ? "Ecpayit2017" : pass;
+        Properties props = System.getProperties();
+        String host = "smtp.gmail.com";
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", account);
+        props.put("mail.smtp.password", pass);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+        if (
+                StringCommon.isNullOrBlank(recipient)
+                        || StringCommon.isNullOrBlank(subject)
+                        || StringCommon.isNullOrBlank(contents)
+        )
+            return Response.REQUIRED_PARAMETERS_MAY_NOT_BE_BLANK;
+
+        String[] to = recipient.split(";");
+        Response response = Response.OK;
+        try {
+            message.setFrom(new InternetAddress(account + "@gmail.com"));
+            InternetAddress[] toAddress = new InternetAddress[to.length];
+
+            // To get the array of addresses
+            for (int i = 0; i < to.length; i++) {
+                toAddress[i] = new InternetAddress(to[i]);
+            }
+
+            for (int i = 0; i < toAddress.length; i++) {
+                message.addRecipient(javax.mail.Message.RecipientType.TO, toAddress[i]);
+            }
+
+            message.setSubject(subject);
+            message.setText(contents);
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, account, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        } catch (AddressException ae) {
+            ae.printStackTrace();
+            response = Response.FAILED_TO_LOGIN_MAIL_SERVER;
+        } catch (MessagingException me) {
+            me.printStackTrace();
+            response = Response.FAILED_TO_LOGIN_MAIL_SERVER;
+        } finally {
+            LOGGER.info("[E][" + id + "][Duration = " + (System.currentTimeMillis() - id) + "] Gmail.send >>> " + response.toString());
+        }
+        return response;
     }
 }

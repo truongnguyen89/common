@@ -32,6 +32,15 @@ public class Cache {
     public static List<Api> apiList;
     public static Map<MultiKey, Roles> rolesMap;
 
+    public static void reloadParams(List<Param> paramList,
+                                    List<Agent> agentList,
+                                    List<Api> apiList,
+                                    List<Roles> rolesList) {
+        setParamCache(paramList);
+        setAgentCache(agentList);
+        setApiListCache(apiList);
+        setRolesCache(rolesList);
+    }
 
     public static Response setParamCache(List<Param> paramList) {
         if (ArrayListCommon.isNullOrEmpty(paramList))
@@ -90,7 +99,7 @@ public class Cache {
         if (paramMap == null
                 || paramMap.isEmpty()
                 || StringCommon.isNullOrBlank(type)
-                ) {
+        ) {
             return paramList;
         } else {
             type = type.trim().toUpperCase();
@@ -112,7 +121,7 @@ public class Cache {
                 || paramMap.isEmpty()
                 || StringCommon.isNullOrBlank(type)
                 || StringCommon.isNullOrBlank(code)
-                ) {
+        ) {
             return null;
         } else {
             MultiKey multiKey = new MultiKey(type, code);

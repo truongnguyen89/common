@@ -1,8 +1,10 @@
 package com.football.common.model.email;
 
+import com.football.common.cache.Cache;
 import com.football.common.constant.Constant;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.football.common.util.JsonCommon;
 import io.swagger.models.auth.In;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -23,8 +25,7 @@ import java.util.Date;
         allowGetters = true)
 public class Email {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_EMAIL)
-    @SequenceGenerator(schema = Constant.SCHEMA.ENOTIFICATION, name = Constant.SEQUENCE.SQ_EMAIL, sequenceName = Constant.SEQUENCE.SQ_EMAIL, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "s_from_adress")
@@ -147,6 +148,20 @@ public class Email {
         this.createdAt = createdAt;
     }
 
+    public Email(String toAdress, String subject, String message) {
+        this.fromAdress = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.EMAIL, Constant.PARAMS.CODE.FROM_MAIL_DEFAUL);
+        this.toAdress = toAdress;
+        this.subject = subject;
+        this.message = message;
+        this.status = Constant.EMAIL.STATUS.NEW;
+        this.createdAt = new Date();
+    }
+
     public Email() {
+    }
+
+    @Override
+    public String toString(){
+        return JsonCommon.objectToJsonNotNull(this);
     }
 }

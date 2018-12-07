@@ -35,6 +35,18 @@ VALUES('PRICE','VANG','Giá giờ vàng','800000',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('PRICE','TOI','Giá buổi tối','700000',1,sysdate());
 /*---Cau hinh cho cac column cua bang booking---*/
+/*---Cau hinh tai khoan Gmail gui di---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('GMAIL','ACCOUNT','Tài khoản gmail gửi','ecpay.it',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('GMAIL','PASS','Mật khẩu tài khoản gmail gửi','Ecpayit2017',1,sysdate());
+/*---Cau hinh email gui di thong bao ket qua start ung dung---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('EMAIL_START_APPLICATION','SUBJECT','Tiêu đề email được gửi đi','Thông báo kết quả start ứng dụng >>> {0}',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('EMAIL_START_APPLICATION','MESSAGE','Nội dung gửi email','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('EMAIL_START_APPLICATION','TO_MAIL_DEFAUL','Người nhận email','nqtruong@ecpay.vn',1,sysdate());
 /*---booking.type---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('BOOKING','TYPE_PLAYER_BOOKING','Người chơi đặt sân','1',1,sysdate());

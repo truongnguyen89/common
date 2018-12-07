@@ -112,6 +112,8 @@ public interface Constant {
         interface TYPE {
 
             public static final String EMAIL = "EMAIL";
+            public static final String EMAIL_START_APPLICATION = "EMAIL_START_APPLICATION";
+            public static final String GMAIL = "GMAIL";
             public static final String EXCEL = "EXCEL";
             public static final String EPAY_FINANCE = "EPAY_FINANCE";
             public static final String NOTIFICATION = "NOTIFICATION";
@@ -151,6 +153,8 @@ public interface Constant {
             public static final String PASS = "PASS";
             public static final String HOST = "HOST";
             public static final String PORT = "PORT";
+            public static final String SUBJECT = "SUBJECT";
+            public static final String MESSAGE = "MESSAGE";
             public static final String TO_MAIL_DEFAUL = "TO_MAIL_DEFAUL";
             public static final String ROWNUM_IN_SHEET = "ROWNUM_IN_SHEET";
             public static final String CLIENT_ID = "CLIENT_ID";
