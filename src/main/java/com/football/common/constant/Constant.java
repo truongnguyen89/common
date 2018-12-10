@@ -255,6 +255,10 @@ public interface Constant {
         public static final String APP = "app";
         public static final String EMAIL = "email";
         public static final String ACCOUNT = "account";
+        public static final String CITY_PROVINCIAL = "city_provincial";
+        public static final String COUNTY_DISTRICT = "county_district";
+        public static final String COMMUNE = "commune";
+        public static final String AREA = "area";
     }
 
     //Declare SEQUENCE used in the DATABASE
