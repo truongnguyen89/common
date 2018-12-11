@@ -8,6 +8,9 @@ import com.football.common.constant.Constant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * @author : TruongNQ
  * @date created : Apr 7, 2018
@@ -137,4 +140,13 @@ public class NumberCommon {
         }
         return null;
     }
+
+    public static int getRandomBetweenRange(int min, int max) {
+        return min + new Random().nextInt(max);
+    }
+
+    public static long getRandomBetweenRange(long min, long max) {
+        return ThreadLocalRandom.current().nextLong(min, max);
+    }
+
 }
