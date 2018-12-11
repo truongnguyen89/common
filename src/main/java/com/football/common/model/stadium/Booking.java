@@ -129,4 +129,17 @@ public class Booking {
     public void setUpdatedAt() {
         this.updatedAt = new Date();
     }
+
+    public Booking() {
+    }
+
+    public Booking(Long playerId, Long matchId, Date matchDay, Integer type, Integer status, Long createdUserId, String comment) {
+        this.playerId = playerId;
+        this.matchId = matchId;
+        this.matchDay = matchDay;
+        this.type = type;
+        this.status = status;
+        this.createdUserId = createdUserId;
+        this.comment = comment;
+    }
 }

@@ -121,4 +121,14 @@ public class StadiumManager {
     public void setUpdatedAt() {
         this.updatedAt = new Date();
     }
+
+    public StadiumManager() {
+    }
+
+    public StadiumManager(Long userId, Long stadiumId, Integer type, Integer status) {
+        this.userId = userId;
+        this.stadiumId = stadiumId;
+        this.type = type;
+        this.status = status;
+    }
 }

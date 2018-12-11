@@ -40,6 +40,77 @@ public class Area {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date updatedAt;
 
+    @Transient
+    private String cityProvincialCode;
+    @Transient
+    private String cityProvincialName;
+    @Transient
+    private String countyDistrictCode;
+    @Transient
+    private String countyDistrictName;
+    @Transient
+    private String communeCode;
+    @Transient
+    private String communeName;
+    @Transient
+    private String communeType;
+
+    public String getCityProvincialCode() {
+        return cityProvincialCode;
+    }
+
+    public void setCityProvincialCode(String cityProvincialCode) {
+        this.cityProvincialCode = cityProvincialCode;
+    }
+
+    public String getCityProvincialName() {
+        return cityProvincialName;
+    }
+
+    public void setCityProvincialName(String cityProvincialName) {
+        this.cityProvincialName = cityProvincialName;
+    }
+
+    public String getCountyDistrictCode() {
+        return countyDistrictCode;
+    }
+
+    public void setCountyDistrictCode(String countyDistrictCode) {
+        this.countyDistrictCode = countyDistrictCode;
+    }
+
+    public String getCountyDistrictName() {
+        return countyDistrictName;
+    }
+
+    public void setCountyDistrictName(String countyDistrictName) {
+        this.countyDistrictName = countyDistrictName;
+    }
+
+    public String getCommuneCode() {
+        return communeCode;
+    }
+
+    public void setCommuneCode(String communeCode) {
+        this.communeCode = communeCode;
+    }
+
+    public String getCommuneName() {
+        return communeName;
+    }
+
+    public void setCommuneName(String communeName) {
+        this.communeName = communeName;
+    }
+
+    public String getCommuneType() {
+        return communeType;
+    }
+
+    public void setCommuneType(String communeType) {
+        this.communeType = communeType;
+    }
+
     public Long getId() {
         return id;
     }

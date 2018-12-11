@@ -118,4 +118,16 @@ public class SubStadium {
     public void setUpdatedAt() {
         this.updatedAt = new Date();
     }
+
+    public SubStadium() {
+    }
+
+    public SubStadium(Long stadiumId, String number, Integer length, Integer width, Integer type, Integer status) {
+        this.stadiumId = stadiumId;
+        this.number = number;
+        this.length = length;
+        this.width = width;
+        this.type = type;
+        this.status = status;
+    }
 }

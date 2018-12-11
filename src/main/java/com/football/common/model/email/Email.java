@@ -40,6 +40,8 @@ public class Email {
     private String message;
     @Column(name = "s_file_name")
     private String fileName;
+    @Column(name = "n_type")
+    private Integer type;
     @Column(name = "n_status")
     private Integer status;
     @Column(name = "d_created_at")
@@ -55,6 +57,14 @@ public class Email {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getStatus() {

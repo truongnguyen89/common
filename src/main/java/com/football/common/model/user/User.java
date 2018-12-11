@@ -145,4 +145,19 @@ public class User {
     public void setUpdatedAt() {
         this.updatedAt = new Date();
     }
+
+    public User() {
+    }
+
+    public User(String username, String password, String name, String email, String phone, String address, Integer type, Integer status) {
+
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.type = type;
+        this.status = status;
+    }
 }

@@ -35,6 +35,8 @@ public class Stadium {
     private String email;
     @Column(name = "s_phone")
     private String phone;
+    @Column(name = "n_area_id")
+    private Long areaId;
     @Column(name = "s_longitude")
     private String longitude;
     @Column(name = "s_latitude")
@@ -120,6 +122,14 @@ public class Stadium {
         this.phone = phone;
     }
 
+    public Long getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Long areaId) {
+        this.areaId = areaId;
+    }
+
     public String getLongitude() {
         return longitude;
     }
@@ -184,5 +194,19 @@ public class Stadium {
     @PreUpdate
     public void setUpdatedAt() {
         this.updatedAt = new Date();
+    }
+
+    public Stadium() {
+    }
+
+    public Stadium(String name, String address, String email, String phone, Long areaId, Integer countSubStadium, Integer type, Integer status) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+        this.areaId = areaId;
+        this.countSubStadium = countSubStadium;
+        this.type = type;
+        this.status = status;
     }
 }
