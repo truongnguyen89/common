@@ -9,6 +9,7 @@ package com.football.common.constant;
  */
 public interface TextConstant {
     interface MESSAGE {
+        public static final String NOT_AVAILABLE = "{0} is not available.";
         public static final String IS_NULL = "{0} is null.";
         public static final String IS_EXISTS = "{0} is exists.";
         public static final String NOT_FOUND = "{0} not found.";

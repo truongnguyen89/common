@@ -39,12 +39,12 @@ public class User {
     private String address;
     @Column(name = "n_type")
     private Integer type;
-    @Column(name = "N_STATUS")
+    @Column(name = "n_status")
     private Integer status;
-    @Column(name = "D_CREATED_AT")
+    @Column(name = "d_created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
-    @Column(name = "D_UPDATED_AT")
+    @Column(name = "d_updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date updatedAt;
 

@@ -47,7 +47,7 @@ public class Cache {
             return Response.BAD_REQUEST;
         Map<MultiKey, String> paramTmp = new HashMap<>();
         for (Param param : paramList) {
-            if (param.getStatus() == Constant.STATUS_OBJECT.ACTIVE_INT)
+            if (param.getStatus() == Constant.STATUS_OBJECT.ACTIVE)
                 paramTmp.put(new MultiKey(param.getParamKey().getType(), param.getParamKey().getCode()), param.getValue());
         }
         paramMap = paramTmp;
@@ -59,7 +59,7 @@ public class Cache {
             return Response.BAD_REQUEST;
         Map<MultiKey, Roles> rolesTmp = new HashMap<>();
         for (Roles roles : rolesList) {
-            if (roles.getStatus() == Constant.STATUS_OBJECT.ACTIVE_INT)
+            if (roles.getStatus() == Constant.STATUS_OBJECT.ACTIVE)
                 rolesTmp.put(new MultiKey(roles.getAgentId(), roles.getApiId()), roles);
         }
         rolesMap = rolesTmp;
@@ -71,7 +71,7 @@ public class Cache {
             return Response.BAD_REQUEST;
         Map<String, Agent> agentTmp = new HashMap<>();
         for (Agent a : agentList) {
-            if (a != null && !StringCommon.isNullOrBlank(a.getCode()) && a.getStatus() == Constant.STATUS_OBJECT.ACTIVE_INT) {
+            if (a != null && !StringCommon.isNullOrBlank(a.getCode()) && a.getStatus() == Constant.STATUS_OBJECT.ACTIVE) {
                 if (a.getPublicKeyCrypt() == null && !StringCommon.isNullOrBlank(a.getPublicKey()))
                     a.setPublicKeyCrypt(RSA.getPublicKeyFromString(a.getPublicKey()));
                 if (a.getPrivateKeyCrypt() == null && !StringCommon.isNullOrBlank(a.getPrivateKey()))
@@ -108,7 +108,7 @@ public class Cache {
                     Param p = new Param();
                     p.setParamKey(new ParamKey(type, multiKey.getKey(1).toString()));
                     p.setValue(paramMap.get(multiKey));
-                    p.setStatus(Constant.STATUS_OBJECT.ACTIVE_INT);
+                    p.setStatus(Constant.STATUS_OBJECT.ACTIVE);
                     paramList.add(p);
                 }
             }

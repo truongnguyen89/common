@@ -64,7 +64,7 @@ public class AuthenticationIntercepter implements HandlerInterceptor {
 //            response.setStatus(HttpStatus.BAD_REQUEST.value());
 //            response.getWriter().write(MessageCommon.getMessage(TextConstant.MESSAGE.NOT_FOUND, Constant.TABLE.AGENT));
 //            return false;
-//        } else if (agent.getStatus() != Constant.STATUS_OBJECT.ACTIVE_INT) {
+//        } else if (agent.getStatus() != Constant.STATUS_OBJECT.ACTIVE) {
 //            LOGGER.error("[ERROR] Agent inactive with agentCode = " + agentCode);
 //            response.setStatus(HttpStatus.BAD_REQUEST.value());
 //            response.getWriter().write(MessageCommon.getMessage(TextConstant.MESSAGE.INACTIVE, Constant.TABLE.AGENT));
@@ -109,7 +109,7 @@ public class AuthenticationIntercepter implements HandlerInterceptor {
 //            String method = request.getMethod();
 //            for (Api api : Cache.apiList) {
 //                try {
-//                    validateUri = (api.getStatus() == Constant.STATUS_OBJECT.ACTIVE_INT) && uri.contains(api.getUrl()) && (method.equals(api.getMethod()));
+//                    validateUri = (api.getStatus() == Constant.STATUS_OBJECT.ACTIVE) && uri.contains(api.getUrl()) && (method.equals(api.getMethod()));
 //                    //Neu tim thay uri thi check tiep quyen cua agent co duoc phep truy cap ?
 //                    if (validateUri) {
 //                        Roles roles = Cache.rolesMap.get(new MultiKey(agent.getId(), api.getId()));
@@ -118,7 +118,7 @@ public class AuthenticationIntercepter implements HandlerInterceptor {
 //                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
 //                            response.getWriter().write("Agent " + agent.getCode() + " not permission method " + api.getMethod() + " uri " + api.getUrl());
 //                            return false;
-//                        } else if (roles.getStatus() != Constant.STATUS_OBJECT.ACTIVE_INT) {
+//                        } else if (roles.getStatus() != Constant.STATUS_OBJECT.ACTIVE) {
 //                            LOGGER.error("[ERROR] Roles Agent " + agent.getCode() + " call method " + api.getMethod() + " uri " + api.getUrl() + " inactive");
 //                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
 //                            response.getWriter().write("Agent " + agent.getCode() + " not permission method " + api.getMethod() + " uri " + api.getUrl());

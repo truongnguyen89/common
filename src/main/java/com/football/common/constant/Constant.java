@@ -74,10 +74,11 @@ public interface Constant {
 
         public static final String ACTIVE_STRING = "1";
         public static final String INACTIVE_STRING = "0";
-        public static final int ACTIVE_INT = 1;
-        public static final int INACTIVE_INT = 0;
-        public static final Long ACTIVE = 1L;
-        public static final Long INACTIVE = 0L;
+        public static final int ACTIVE = 1;
+        public static final int LOCK = 2;
+        public static final int INACTIVE = 0;
+        public static final Long ACTIVE_LONG = 1L;
+        public static final Long INACTIVE_LONG = 0L;
     }
 
     interface DATE {
@@ -401,4 +402,22 @@ public interface Constant {
             public static final int ERROR = -1;
         }
     }
+
+    interface MATCH {
+        interface STATUS {
+            public static final int FREE = 1;
+            public static final int WAITING_CONFIRM = 2;
+            public static final int BOOKED = 3;
+            public static final int INACTIVE = 0;
+        }
+    }
+
+    interface USER {
+        interface TYPE {
+            public static final int ADMIN = 1;
+            public static final int PLAYER = 2;
+            public static final int MANAGER = 3;
+        }
+    }
+
 }
