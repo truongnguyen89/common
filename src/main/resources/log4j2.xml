@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            [%d{dd/MM/yyyy HH:mm:ss,SSS}] %m%n
+        </Property>
+        <property name="app.name">${bundle:application:name}/</property>
+        <!--<property name="log.file.path">D:/LOGS/ecpay-notification</property>-->
+        <property name="log.file.path">/Users/truongnq/log/</property>
+    </Properties>
+
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="application" fileName="${log.file.path}/${app.name}/application/application.log"
+                     filePattern="${log.file.path}/${app.name}/application/application-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="subscribe" fileName="${log.file.path}/${app.name}/subscribe/subscribe.log"
+                     filePattern="${log.file.path}/${app.name}/subscribe/subscribe-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="common" fileName="${log.file.path}/${app.name}/common/common.log"
+                     filePattern="${log.file.path}/${app.name}/common/common-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="email" fileName="${log.file.path}/${app.name}/email/email.log"
+                     filePattern="${log.file.path}/${app.name}/email/email-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="connection" fileName="${log.file.path}/${app.name}/connection/connection.log"
+                     filePattern="${log.file.path}/${app.name}/connection/connection-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="api" fileName="${log.file.path}/${app.name}/api/api.log"
+                     filePattern="${log.file.path}/${app.name}/api/api-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="authentication" fileName="${log.file.path}/${app.name}/authentication/authentication.log"
+                     filePattern="${log.file.path}/${app.name}/authentication/authentication-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="epay" fileName="${log.file.path}/${app.name}/epay/epay.log"
+                     filePattern="${log.file.path}/${app.name}/epay/epay-%d{yyyy-MM-dd-HH-mm}-%i.txt">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="1MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+
+        <RollingFile name="category" fileName="${log.file.path}/${app.name}/category/category.log"
+                     filePattern="${log.file.path}/${app.name}/category/category-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="db" fileName="${log.file.path}/${app.name}/db/db.log"
+                     filePattern="${log.file.path}/${app.name}/db/db-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="dawaco" fileName="${log.file.path}/${app.name}/provider/dawaco/dawaco.log"
+                     filePattern="${log.file.path}/${app.name}/provider/dawaco/dawaco-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="huewaco" fileName="${log.file.path}/${app.name}/provider/huewaco/huewaco.log"
+                     filePattern="${log.file.path}/${app.name}/provider/huewaco/huewaco-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="dakwaco" fileName="${log.file.path}/${app.name}/provider/dakwaco/dakwaco.log"
+                     filePattern="${log.file.path}/${app.name}/provider/dakwaco/dakwaco-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="customer" fileName="${log.file.path}/${app.name}/customer/customer.log"
+                     filePattern="${log.file.path}/${app.name}/customer/customer-%d{yyyy-MM-dd-HH-mm}-%i.txt">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="1MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="core" fileName="${log.file.path}/${app.name}/core/core.log"
+                     filePattern="${log.file.path}/${app.name}/core/core-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="notification" fileName="${log.file.path}/${app.name}/notification/notification.log"
+                     filePattern="${log.file.path}/${app.name}/notification/notification-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="onesignal" fileName="${log.file.path}/${app.name}/onesignal/onesignal.log"
+                     filePattern="${log.file.path}/${app.name}/onesignal/onesignal-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+        <RollingFile name="bill" fileName="${log.file.path}/${app.name}/bill/bill.log"
+                     filePattern="${log.file.path}/${app.name}/bill/bill-%d{yyyy-MM-dd-HH-mm}-%i.txt">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="1MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+        <RollingFile name="billing" fileName="${log.file.path}/${app.name}/billing/billing.log"
+                     filePattern="${log.file.path}/${app.name}/billing/billing-%d{yyyy-MM-dd-HH-mm}-%i.txt">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="1MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="application" level="info" additivity="false">
+            <AppenderRef ref="application"/>
+        </Logger>
+        <Logger name="subscribe" level="info" additivity="false">
+            <AppenderRef ref="subscribe"/>
+        </Logger>
+        <Logger name="common" level="info" additivity="false">
+            <AppenderRef ref="common"/>
+        </Logger>
+        <Logger name="email" level="info" additivity="false">
+            <AppenderRef ref="email"/>
+        </Logger>
+        <Logger name="connection" level="info" additivity="false">
+            <AppenderRef ref="connection"/>
+        </Logger>
+        <Logger name="authentication" level="info" additivity="false">
+            <AppenderRef ref="authentication"/>
+        </Logger>
+        <Logger name="epay" level="info" additivity="false">
+            <AppenderRef ref="epay"/>
+        </Logger>
+        <Logger name="huewaco" level="info" additivity="false">
+            <AppenderRef ref="huewaco"/>
+        </Logger>
+        <Logger name="dawaco" level="info" additivity="false">
+            <AppenderRef ref="dawaco"/>
+        </Logger>
+        <Logger name="dakwaco" level="info" additivity="false">
+            <AppenderRef ref="dakwaco"/>
+        </Logger>
+        <Logger name="db" level="info" additivity="false">
+            <AppenderRef ref="db"/>
+        </Logger>
+        <Logger name="category" level="info" additivity="false">
+            <AppenderRef ref="category"/>
+        </Logger>
+        <Logger name="customer" level="info" additivity="false">
+            <AppenderRef ref="customer"/>
+        </Logger>
+        <Logger name="core" level="info" additivity="false">
+            <AppenderRef ref="core"/>
+        </Logger>
+        <Logger name="bill" level="info" additivity="false">
+            <AppenderRef ref="bill"/>
+        </Logger>
+        <Logger name="billing" level="info" additivity="false">
+            <AppenderRef ref="billing"/>
+        </Logger>
+        <Logger name="notification" level="info" additivity="false">
+            <AppenderRef ref="notification"/>
+        </Logger>
+        <Logger name="onesignal" level="info" additivity="false">
+            <AppenderRef ref="onesignal"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
