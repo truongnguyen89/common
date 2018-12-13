@@ -141,8 +141,8 @@ public class OpenWeatherServiceImpl implements OpenWeatherService {
 
             JsonNode sys = nd.get("sys");
             if (sys != null) {
-                weatherInfo.setSunrise(rain.get("sunrise") != null ? rain.get("sunrise").asText() : "");
-                weatherInfo.setSunset(rain.get("sunset") != null ? rain.get("sunset").asText() : "");
+                weatherInfo.setSunrise(sys.get("sunrise") != null ? sys.get("sunrise").asText() : "");
+                weatherInfo.setSunset(sys.get("sunset") != null ? sys.get("sunset").asText() : "");
             }
 
         } catch (Exception e) {
@@ -165,6 +165,8 @@ public class OpenWeatherServiceImpl implements OpenWeatherService {
                 JsonNode nodeList = (JsonNode) om.readValue(cityListJson.toString(), JsonNode.class);
                 if (nodeList != null && nodeList instanceof ArrayNode) {
                     for (JsonNode nd : nodeList) {
+                        if (!"VN".equals(nd.get("country").asText()))
+                            continue;
                         weatherLocalList.add(getWeatherLocalFromJson(nd));
                     }
                 }
