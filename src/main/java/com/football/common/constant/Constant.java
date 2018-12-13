@@ -119,24 +119,25 @@ public interface Constant {
             public static final String EPAY_FINANCE = "EPAY_FINANCE";
             public static final String NOTIFICATION = "NOTIFICATION";
             public static final String ONE_SIGNAL = "ONE_SIGNAL";
-            public static final String AGENT = "agent";
-            public static final String API = "api";
-            public static final String ROLES = "roles";
-            public static final String USER = "user";
-            public static final String STADIUM = "stadium";
-            public static final String SUB_STADIUM = "sub_stadium";
-            public static final String STADIUM_MANAGER = "stadium_manager";
-            public static final String BOOKING = "booking";
-            public static final String BOOKING_LOG = "booking_log";
-            public static final String MATCH_SCHEDULE = "match_schedule";
-            public static final String MATCH = "match";
-            public static final String LOG = "log";
-            public static final String NOTIFICATION_CATEGORY = "notification_category";
-            public static final String NOTIFICATION_QUEUE = "notification_queue";
-            public static final String NOTIFICATION_LOG = "notification_log";
-            public static final String ACCOUNT_APP_DEVICE = "account_app_device";
-            public static final String DEVICE = "device";
-            public static final String APP = "app";
+            public static final String AGENT = "AGENT";
+            public static final String API = "API";
+            public static final String ROLES = "ROLES";
+            public static final String USER = "USER";
+            public static final String STADIUM = "STADIUM";
+            public static final String SUB_STADIUM = "SUB_STADIUM";
+            public static final String STADIUM_MANAGER = "STADIUM_MANAGER";
+            public static final String BOOKING = "BOOKING";
+            public static final String BOOKING_LOG = "BOOKING_LOG";
+            public static final String MATCH_SCHEDULE = "MATCH_SCHEDULE";
+            public static final String MATCH = "MATCH";
+            public static final String LOG = "LOG";
+            public static final String NOTIFICATION_CATEGORY = "NOTIFICATION_CATEGORY";
+            public static final String NOTIFICATION_QUEUE = "NOTIFICATION_QUEUE";
+            public static final String NOTIFICATION_LOG = "NOTIFICATION_LOG";
+            public static final String ACCOUNT_APP_DEVICE = "ACCOUNT_APP_DEVICE";
+            public static final String DEVICE = "DEVICE";
+            public static final String APP = "APP";
+            public static final String OPEN_WEATHER = "OPEN_WEATHER";
         }
 
         interface CODE {
@@ -167,6 +168,7 @@ public interface Constant {
             public static final String OPERATION_SEARCH = "OPERATION_SEARCH";
             public static final String URL_PARAM_SEARCH = "URL_PARAM_SEARCH";
             public static final String REST_API_KEY = "REST_API_KEY";
+            public static final String API_KEY = "API_KEY";
             public static final String ROWNUM = "ROWNUM";
             public static final String NUMBER_THREAD_SEND_NOTIFICATION = "NUMBER_THREAD_SEND_NOTIFICATION";
             public static final String NUMBER_THREAD_SEND_EMAIL = "NUMBER_THREAD_SEND_EMAIL";

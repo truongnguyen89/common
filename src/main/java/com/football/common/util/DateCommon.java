@@ -46,14 +46,6 @@ public class DateCommon {
         }
     }
 
-    public static Date convertStringToDate(String strTime, String pattern) {
-        return convertStringToDateByPattern(strTime, Constant.DATE.FORMAT.SHORT_DATE);
-    }
-
-    public static Date convertStringToDateTime(String strTime, String pattern) {
-        return convertStringToDateByPattern(strTime, Constant.DATE.FORMAT.FULL_DATE);
-    }
-
     public static String convertDateToStringByPattern(Date date, String pattern) {
         if (date == null) {
             return "";
@@ -71,7 +63,7 @@ public class DateCommon {
         return convertDateToStringByPattern(date, Constant.DATE.FORMAT.SHORT_DATE);
     }
 
-    public static String convertStringToDateTime(Date date) {
+    public static String convertDateTimeToString(Date date) {
         return convertDateToStringByPattern(date, Constant.DATE.FORMAT.FULL_DATE);
     }
 
@@ -84,7 +76,7 @@ public class DateCommon {
 
     public static Timestamp convertStringToTimestamp(String strTime, String pattern) throws Exception {
         if (!StringCommon.isNullOrBlank(strTime)) {
-            return new Timestamp(convertStringToDate(strTime, pattern).getTime());
+            return new Timestamp(convertStringToDateByPattern(strTime, pattern).getTime());
         }
         return null;
     }

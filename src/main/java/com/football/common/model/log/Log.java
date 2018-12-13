@@ -95,7 +95,7 @@ public class Log {
 
     public void setStartTime(String startTime) {
         if (!StringCommon.isNullOrBlank(startTime))
-            this.startTime = DateCommon.convertStringToDateTime(startTime, Constant.DATE.FORMAT.FULL_DATE_SSS);
+            this.startTime = DateCommon.convertStringToDateByPattern(startTime, Constant.DATE.FORMAT.FULL_DATE_SSS);
     }
 
     public Date getEndTime() {
@@ -108,7 +108,7 @@ public class Log {
 
     public void setEndTime(String endTime) {
         if (!StringCommon.isNullOrBlank(endTime))
-            this.endTime = DateCommon.convertStringToDateTime(endTime, Constant.DATE.FORMAT.FULL_DATE_SSS);
+            this.endTime = DateCommon.convertStringToDateByPattern(endTime, Constant.DATE.FORMAT.FULL_DATE_SSS);
     }
 
     public String getStatus() {

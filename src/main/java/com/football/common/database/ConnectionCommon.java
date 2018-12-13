@@ -125,7 +125,7 @@ public class ConnectionCommon {
         if (StringCommon.isNullOrBlank(value)) {
             ps.setNull(index, java.sql.Types.DATE);
         } else {
-            java.util.Date parsed = DateCommon.convertStringToDate(value, dateFormatPatterm);
+            java.util.Date parsed = DateCommon.convertStringToDateByPattern(value, dateFormatPatterm);
             doSetDateParams(ps, index, parsed == null ? null : new java.sql.Date(parsed.getTime()));
         }
     }
@@ -134,7 +134,7 @@ public class ConnectionCommon {
         if (StringCommon.isNullOrBlank(value)) {
             cs.setNull(index, java.sql.Types.DATE);
         } else {
-            java.util.Date parsed = DateCommon.convertStringToDate(value, dateFormatPatterm);
+            java.util.Date parsed = DateCommon.convertStringToDateByPattern(value, dateFormatPatterm);
             doSetDateParams(cs, index, parsed == null ? null : new java.sql.Date(parsed.getTime()));
         }
     }

@@ -46,6 +46,21 @@ public class FileCommon {
         return list;
     }
 
+    public static StringBuffer readStringBufferFromTextFile(File file) throws Exception {
+        StringBuffer rs = new StringBuffer();
+        FileInputStream fileInputStream = new FileInputStream(file);
+        DataInputStream dataInput = new DataInputStream(fileInputStream);
+        BufferedReader bufferReadre = new BufferedReader(new InputStreamReader(dataInput));
+        String line = "";
+        while (!StringCommon.isNullOrBlank(line = bufferReadre.readLine())) {
+            rs.append(line);
+        }
+        fileInputStream.close();
+        dataInput.close();
+        bufferReadre.close();
+        return rs;
+    }
+
     public static boolean checkFileExists(String pathFile) {
         if (StringCommon.isNullOrBlank(pathFile)) {
             return false;

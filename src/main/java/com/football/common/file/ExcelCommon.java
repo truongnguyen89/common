@@ -2,7 +2,6 @@ package com.football.common.file;
 
 
 import com.football.common.constant.Constant;
-import com.football.common.util.StringCommon;
 import jxl.Sheet;
 import jxl.read.biff.BiffException;
 import net.sf.jxls.transformer.XLSTransformer;
@@ -33,12 +32,28 @@ public class ExcelCommon {
                                      int fromCol,
                                      int toCol) throws Exception {
         List lst = new ArrayList();
-        if (StringCommon.isNullOrBlank(excelFilePath)) {
+        if (FileCommon.checkFileExists(excelFilePath))
+            return lst;
+        else
+            return readExcelFile(new File(excelFilePath), beginRow, fromCol, toCol);
+    }
+
+    /*
+     * Author:TruongNQ
+     * Date created: 09/02/2017
+     * Purpose: Doc file excel return  1 list
+     */
+    public static List readExcelFile(File file,
+                                     int beginRow,
+                                     int fromCol,
+                                     int toCol) throws Exception {
+        List lst = new ArrayList();
+        if (file == null) {
             return lst;
         }
-        if (excelFilePath.trim().toLowerCase().endsWith("xls")) {
+        if (file.getName().toLowerCase().endsWith("xls")) {
             try {
-                jxl.Workbook workbook = jxl.Workbook.getWorkbook(new File(excelFilePath));
+                jxl.Workbook workbook = jxl.Workbook.getWorkbook(file);
                 Sheet sheet = null;
                 if (sheet == null) {
                     sheet = workbook.getSheet(0);

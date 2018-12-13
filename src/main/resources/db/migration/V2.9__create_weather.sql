@@ -6,9 +6,10 @@ DROP TABLE IF EXISTS `weather_info`;
 CREATE TABLE `weather_local` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_open_weather_id` bigint(11) NOT NULL COMMENT 'id cua city tu openweathermap.org',
-  `s_country` varchar(10) NOT NULL COMMENT 'ma quoc gia',
-  `s_longitude` varchar(100) DEFAULT '21.020093' COMMENT 'kinh do',
-  `s_latitude` varchar(100) DEFAULT '105.764075' COMMENT 'vi do',
+  `s_name` varchar(100) COLLATE utf8_unicode_ci COMMENT 'ten dia danh',
+  `s_country` varchar(10) COMMENT 'ma quoc gia',
+  `s_longitude` varchar(50) DEFAULT '21.020093' COMMENT 'kinh do',
+  `s_latitude` varchar(50) DEFAULT '105.764075' COMMENT 'vi do',
   `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
@@ -17,7 +18,7 @@ CREATE TABLE `weather_local` (
 
 CREATE TABLE `weather_info` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
-  `n_weather_local_id` bigint(11) NOT NULL COMMENT 'id cua city tu openweathermap.org',
+  `n_weather_local_id` bigint(11) COMMENT 'id cua city tu openweathermap.org',
   `n_long_time_key` bigint(14) NOT NULL COMMENT 'thoi gian cua thoi tiet',
   `s_temp` varchar(10) NOT NULL COMMENT 'nhiet do hien tai',
   `s_temp_min` varchar(10) NOT NULL COMMENT 'nhiet do thap nhat',
@@ -39,6 +40,5 @@ CREATE TABLE `weather_info` (
   `s_sunset` varchar(5) COMMENT 'mat troi lan - hoang hon',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
-  PRIMARY KEY (`n_id`),
-  CONSTRAINT `weather_info_local_fk` FOREIGN KEY (`n_weather_local_id`) REFERENCES `weather_local` (`n_open_weather_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`n_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
