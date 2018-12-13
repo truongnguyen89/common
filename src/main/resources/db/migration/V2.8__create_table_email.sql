@@ -9,7 +9,7 @@ CREATE TABLE `email` (
   `s_message` varchar(2000) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Message' COMMENT 'noi dung email',
   `s_file_name` varchar(300) COMMENT 'file dinh kem neu co',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai email',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`)

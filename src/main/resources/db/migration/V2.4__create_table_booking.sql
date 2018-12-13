@@ -7,7 +7,7 @@ CREATE TABLE `booking` (
   `n_match_id` bigint(11) NOT NULL COMMENT 'id cua khung gio voi sub stadium cu the',
   `d_match_day` date NOT NULL COMMENT 'ngay du kien dien ra tran dau se dat',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai nguoi quan ly, pho hay truong, chu hay lam thue',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `n_created_user_id` bigint(11) NOT NULL COMMENT 'id cua nguoi dat san, co the la nguoi thue san hoa nguoi quan ly dat giup',
   `s_comment` varchar(2000) COLLATE utf8_unicode_ci COMMENT 'ghi chu',
   `d_created_at` datetime NOT NULL,

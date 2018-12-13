@@ -9,7 +9,7 @@ CREATE TABLE `user` (
   `s_phone` varchar(50) NOT NULL DEFAULT '0987654321' COMMENT 'SDT',
   `s_address` varchar(200) COLLATE utf8_unicode_ci COMMENT 'dia chi',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai tai khoan',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`)

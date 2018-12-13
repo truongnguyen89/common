@@ -12,7 +12,7 @@ CREATE TABLE `stadium` (
   `s_latitude` varchar(100) DEFAULT '105.764075' COMMENT 'vi do',
   `n_count_sub_stadium` int(2) NOT NULL DEFAULT '1' COMMENT 'so san con',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai san bong',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),

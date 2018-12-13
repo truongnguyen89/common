@@ -7,7 +7,7 @@ CREATE TABLE `commune` (
   `s_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ten phuong xa',
   `n_county_district_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi quan huyen',
   `s_level` varchar(10) NOT NULL DEFAULT '1' COMMENT 'Phuong, xa, thi tran',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),

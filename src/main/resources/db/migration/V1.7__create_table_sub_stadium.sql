@@ -8,7 +8,7 @@ CREATE TABLE `sub_stadium` (
   `n_length` int(3) DEFAULT '100' COMMENT 'chieu dai san, don vi tinh bang met',
   `n_width` int(3) DEFAULT '50' COMMENT 'chieu rong san, don vi tinh bang met',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'san bong may nguoi',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),

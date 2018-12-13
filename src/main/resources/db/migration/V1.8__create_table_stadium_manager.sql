@@ -6,7 +6,7 @@ CREATE TABLE `stadium_manager` (
   `n_user_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi user, nguoi quan ly san bong',
   `n_stadium_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi stadium',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai nguoi quan ly, pho hay truong, chu hay lam thue',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),

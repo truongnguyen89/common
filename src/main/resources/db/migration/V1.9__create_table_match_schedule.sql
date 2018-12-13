@@ -6,7 +6,7 @@ CREATE TABLE `match_schedule` (
   `s_start_time` varchar(5) NOT NULL COMMENT 'khung gio bat dau tran dau, dinh dang HH:mi',
   `s_end_time` varchar(5) NOT NULL COMMENT 'khung gio ket thuc tran dau, dinh dang HH:mi',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai khung gio, sau nay tinh phi',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`)

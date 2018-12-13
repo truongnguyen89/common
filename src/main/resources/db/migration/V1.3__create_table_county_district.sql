@@ -6,7 +6,7 @@ CREATE TABLE `county_district` (
   `s_code` varchar(10) NOT NULL COMMENT 'ma quan huyen',
   `s_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ten quan huyen',
   `n_city_provincial_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi tinh thanh pho',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),

@@ -7,7 +7,7 @@ CREATE TABLE `match` (
   `n_match_schedule_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi match_schedule, lich cua san bong',
   `n_price` bigint(11) NOT NULL DEFAULT '600000' COMMENT 'gia thue cho san nay khung gio nay',
   `n_type` int(2) NOT NULL DEFAULT '1' COMMENT 'loai tran dau',
-  `n_status` int(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
+  `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),
