@@ -260,6 +260,8 @@ public interface Constant {
         public static final String COUNTY_DISTRICT = "county_district";
         public static final String COMMUNE = "commune";
         public static final String AREA = "area";
+        public static final String WEATHER_LOCAL = "weather_local";
+        public static final String WEATHER_INFO = "weather_info";
     }
 
     //Declare SEQUENCE used in the DATABASE
