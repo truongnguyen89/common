@@ -6,6 +6,7 @@ CREATE TABLE `area` (
   `n_city_provincial_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi tinh thanh',
   `n_county_district_id` bigint(11) COMMENT 'id cua ban ghi quan huyen',
   `n_commune_id` bigint(11) COMMENT 'id cua ban ghi phuong xa',
+  `n_type` tinyint(1) NOT NULL DEFAULT '3' COMMENT '1 - Tinh/TP, 2 - Quan/Huyen, 3 - Phuong/Xa',
   `n_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'trang thai ban ghi',
   `d_created_at` datetime NOT NULL,
   `d_updated_at` datetime,

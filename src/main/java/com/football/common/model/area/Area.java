@@ -31,6 +31,8 @@ public class Area {
     private Long countyDistrictId;
     @Column(name = "n_commune_id")
     private Long communeId;
+    @Column(name = "n_type")
+    private Integer type;
     @Column(name = "n_status")
     private Integer status;
     @Column(name = "d_created_at")
@@ -141,6 +143,14 @@ public class Area {
 
     public void setCommuneId(Long communeId) {
         this.communeId = communeId;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getStatus() {

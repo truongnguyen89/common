@@ -424,4 +424,12 @@ public interface Constant {
         }
     }
 
+    interface AREA {
+        interface LEVEL {
+            public static final int CITY = 1; //Tinh, TP
+            public static final int DISTRICT = 2; //Quan, huyen
+            public static final int COMMUNE = 3; //Phuong xa
+        }
+    }
+
 }
