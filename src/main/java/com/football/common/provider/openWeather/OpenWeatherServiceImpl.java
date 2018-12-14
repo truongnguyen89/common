@@ -3,6 +3,7 @@ package com.football.common.provider.openWeather;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.football.common.cache.Cache;
 import com.football.common.constant.Constant;
 import com.football.common.file.FileCommon;
 import com.football.common.message.MessageCommon;
@@ -10,6 +11,8 @@ import com.football.common.model.weather.WeatherInfo;
 import com.football.common.model.weather.WeatherLocal;
 import com.football.common.util.DateCommon;
 import com.football.common.util.JsonCommon;
+import com.football.common.util.NumberCommon;
+import com.football.common.util.StringCommon;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,15 +38,10 @@ import java.util.List;
 @Service
 public class OpenWeatherServiceImpl implements OpenWeatherService {
 
-    String url = "https://api.openweathermap.org/data/2.5/forecast?id={0}&appid={1}&units=metric&lang=vi";
-    String apiKey = "9837f9ff93fe008f7a60f907606e5d78";
-    int timeOut = 10000;
-    int timeOutConnect = 10000;
-
-//    String url = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.URL);
-//    String apiKey = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.API_KEY);
-//    int timeOut = Cache.getIntParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.TIME_OUT, 60000);
-//    int timeOutConnect = Cache.getIntParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.CONNECTION_TIME_OUT, 60000);
+    String url = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.URL);
+    String apiKey = Cache.getValueParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.API_KEY);
+    int timeOut = Cache.getIntParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.TIME_OUT, 60000);
+    int timeOutConnect = Cache.getIntParamFromCache(Constant.PARAMS.TYPE.OPEN_WEATHER, Constant.PARAMS.CODE.CONNECTION_TIME_OUT, 60000);
 
     @Override
     public WeatherInfo getCurrentWeatherData(long localId) {
@@ -141,18 +140,26 @@ public class OpenWeatherServiceImpl implements OpenWeatherService {
 
             JsonNode sys = nd.get("sys");
             if (sys != null) {
-                weatherInfo.setSunrise(sys.get("sunrise") != null ? sys.get("sunrise").asText() : "");
-                weatherInfo.setSunset(sys.get("sunset") != null ? sys.get("sunset").asText() : "");
+                if (sys.get("sunrise") != null && !StringCommon.isNullOrBlank(sys.get("sunrise").asText()))
+                    try {
+                        long sunriseLong = NumberCommon.convertToLong(sys.get("sunrise").asText());
+                        weatherInfo.setSunrise(DateCommon.convertDateToStringByPattern(new Date(sunriseLong * 1000), Constant.DATE.FORMAT.MINUTE_TIME));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                if (sys.get("sunset") != null && !StringCommon.isNullOrBlank(sys.get("sunset").asText()))
+                    try {
+                        long sunriseLong = NumberCommon.convertToLong(sys.get("sunset").asText());
+                        weatherInfo.setSunset(DateCommon.convertDateToStringByPattern(new Date(sunriseLong * 1000), Constant.DATE.FORMAT.MINUTE_TIME));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         return weatherInfo;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(JsonCommon.objectToJsonLog(new OpenWeatherServiceImpl().get5DayWeather(1581129)));
     }
 
     @Override
@@ -165,8 +172,6 @@ public class OpenWeatherServiceImpl implements OpenWeatherService {
                 JsonNode nodeList = (JsonNode) om.readValue(cityListJson.toString(), JsonNode.class);
                 if (nodeList != null && nodeList instanceof ArrayNode) {
                     for (JsonNode nd : nodeList) {
-                        if (!"VN".equals(nd.get("country").asText()))
-                            continue;
                         weatherLocalList.add(getWeatherLocalFromJson(nd));
                     }
                 }

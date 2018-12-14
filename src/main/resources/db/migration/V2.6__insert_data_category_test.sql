@@ -9,20 +9,12 @@ INSERT INTO user (`s_username`, `s_password`, `s_name`, `s_email`, `s_phone`, `s
 VALUES ('truongnq4', '123456', 'Nguyễn Quang Trường 4', 'truongnq4@gmail.com', '0962266682', 'Hà Nội', '1', '1', sysdate());
 /*---params---*/
 /*---Cau hinh cho cac column cua bang user---*/
-/*---USER.type---*/
+/*---Co import data test---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','TYPE_ADMIN','Admin','1',1,sysdate());
+VALUES('SYSTEM','IMPORT_DATA_WEATHER_LOCAL_TEST','Cờ import data weather local from open weather test','1',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','TYPE_PLAYER','Người chơi','2',1,sysdate());
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','TYPE_MANAGER','Người quản lý sân','2',1,sysdate());
+VALUES('SYSTEM','IMPORT_DATA_AREA_TEST','Cờ import data area từ trang thống kê chính phủ','1',1,sysdate());
 /*---USER.status---*/
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','STATUS_ACTIVE','Đang hoạt động','1',1,sysdate());
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','STATUS_INACTIVE','Không hoạt động','0',1,sysdate());
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('USER','STATUS_LOCK','Bị khóa','2',1,sysdate());
 /*---Gia cho cac khung gio, bang match.price---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('PRICE','SANG','Giá buổi sáng','400000',1,sysdate());
@@ -40,13 +32,6 @@ INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created
 VALUES('GMAIL','ACCOUNT','Tài khoản gmail gửi','ecpay.it',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('GMAIL','PASS','Mật khẩu tài khoản gmail gửi','Ecpayit2017',1,sysdate());
-/*---Cau hinh email gui di thong bao ket qua start ung dung---*/
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('EMAIL_START_APPLICATION','SUBJECT','Tiêu đề email được gửi đi','Thông báo kết quả start ứng dụng >>> {0}',1,sysdate());
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('EMAIL_START_APPLICATION','MESSAGE','Nội dung gửi email','1',1,sysdate());
-INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('EMAIL_START_APPLICATION','TO_MAIL_DEFAUL','Người nhận email','nqtruong@ecpay.vn',1,sysdate());
 /*---booking.type---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('BOOKING','TYPE_PLAYER_BOOKING','Người chơi đặt sân','1',1,sysdate());
@@ -61,6 +46,16 @@ INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created
 VALUES('BOOKING','STATUS_CANCEL','Hủy yêu cầu đặt sân','3',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('BOOKING','STATUS_MANAGER_REFUSE','Quản lý từ chối đặt sân','4',1,sysdate());
+/*---Cau hinh open weather---*/
+
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('OPEN_WEATHER','URL','Đường dẫn url call ws','https://api.openweathermap.org/data/2.5/forecast?id={0}&appid={1}&units=metric&lang=vi',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('OPEN_WEATHER','API_KEY','Key của acc đã đăng ký tài khoản trên trang openweather.com','9837f9ff93fe008f7a60f907606e5d78',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('OPEN_WEATHER','TIME_OUT','Timeout','10000',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('OPEN_WEATHER','CONNECTION_TIME_OUT','Connect timeout','10000',1,sysdate());
 /*---stadium---*/
 INSERT INTO `stadium` (`s_name`,`s_address`,`s_email`,`s_phone`,`s_longitude`,`s_latitude`,`n_count_sub_stadium`,`n_type`,`n_status`,`d_created_at`,`d_updated_at`)
 VALUES ('Sân bóng Thành Phát','Hoàng Minh Giám','thanhphat@gmail.com','0989666777','21.898989','105.787878',4,1,1,sysdate(),NULL);

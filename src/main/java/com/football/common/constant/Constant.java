@@ -112,6 +112,7 @@ public interface Constant {
 
         interface TYPE {
 
+            public static final String SYSTEM = "SYSTEM";
             public static final String EMAIL = "EMAIL";
             public static final String EMAIL_START_APPLICATION = "EMAIL_START_APPLICATION";
             public static final String GMAIL = "GMAIL";
@@ -178,6 +179,8 @@ public interface Constant {
             public static final String EMAIL_HOST = "EMAIL_HOST";
             public static final String EMAIL_PASS = "EMAIL_PASS";
             public static final String EMAIL_PORT = "EMAIL_PORT";
+            public static final String IMPORT_DATA_WEATHER_LOCAL_TEST = "IMPORT_DATA_WEATHER_LOCAL_TEST";
+            public static final String IMPORT_DATA_AREA_TEST = "IMPORT_DATA_AREA_TEST";
         }
 
         interface VALUE {
@@ -429,6 +432,20 @@ public interface Constant {
             public static final int CITY = 1; //Tinh, TP
             public static final int DISTRICT = 2; //Quan, huyen
             public static final int COMMUNE = 3; //Phuong xa
+        }
+    }
+
+    interface SYSTEM {
+        interface IMPORT_DATA_WEATHER_LOCAL_TEST {
+            public static final int NO = 1; //Chua duoc import
+            public static final int DOING = 2; //Dang import
+            public static final int YES = 3; //Da import
+        }
+
+        interface IMPORT_DATA_AREA_TEST {
+            public static final int NO = 1; //Chua duoc import
+            public static final int DOING = 2; //Dang import
+            public static final int YES = 3; //Da import
         }
     }
 
