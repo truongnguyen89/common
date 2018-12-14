@@ -33,6 +33,8 @@ public class Area {
     private Long communeId;
     @Column(name = "n_type")
     private Integer type;
+    @Column(name = "n_open_weather_id")
+    private Long openWeatherId;
     @Column(name = "n_status")
     private Integer status;
     @Column(name = "d_created_at")
@@ -151,6 +153,14 @@ public class Area {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Long getOpenWeatherId() {
+        return openWeatherId;
+    }
+
+    public void setOpenWeatherId(Long openWeatherId) {
+        this.openWeatherId = openWeatherId;
     }
 
     public Integer getStatus() {
