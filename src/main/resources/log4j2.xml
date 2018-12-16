@@ -5,7 +5,7 @@
             [%d{dd/MM/yyyy HH:mm:ss,SSS}] %m%n
         </Property>
         <property name="app.name">${bundle:application:name}/</property>
-        <!--<property name="log.file.path">D:/LOGS/ecpay-notification</property>-->
+        <!--<property name="log.file.path">D:/LOGS/</property>-->
         <property name="log.file.path">/Users/truongnq/log/</property>
     </Properties>
 
