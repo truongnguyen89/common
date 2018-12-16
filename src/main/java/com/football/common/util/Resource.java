@@ -3,8 +3,14 @@ package com.football.common.util;
 import com.football.common.constant.Constant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.io.ClassPathResource;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
@@ -19,16 +25,20 @@ public class Resource {
 
     private static ResourceBundle rb = null;
 
-    public static String getResource(String key) {
-        return getResource(key, null);
+    public static String getMessageResoudrce(String key) {
+        return getMessageResource(key, null);
     }
 
-    public static String getResource(String key, Locale locale) {
+    public static String getResoudrce(String fileConfig, String key) {
+        return getResource(fileConfig, key, null);
+    }
+
+    public static String getMessageResource(String key, Locale locale) {
         try {
             if (locale == null) {
-                rb = ResourceBundle.getBundle("config_common");
+                rb = ResourceBundle.getBundle("messages");
             } else {
-                rb = ResourceBundle.getBundle("config_common", locale);
+                rb = ResourceBundle.getBundle("messages", locale);
             }
             return rb.getString(key);
         } catch (Exception ex) {
@@ -53,4 +63,11 @@ public class Resource {
         }
         return key;
     }
+
+    public static PropertiesFactoryBean mapper(String fileConfig) {
+        PropertiesFactoryBean bean = new PropertiesFactoryBean();
+        bean.setLocation(new ClassPathResource(fileConfig.endsWith("properties") ? fileConfig : (fileConfig + ".properties")));
+        return bean;
+    }
+
 }

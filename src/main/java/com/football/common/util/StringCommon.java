@@ -89,7 +89,6 @@ public class StringCommon {
     }
 
     /**
-     *
      * @param str
      * @return reverse of String input
      */
@@ -98,5 +97,20 @@ public class StringCommon {
             return str;
         else
             return new StringBuffer(str).reverse().toString();
+    }
+
+    public static String getKeyWordFromMessageResource(String msg) {
+        if (isNullOrBlank(msg))
+            return msg;
+        else
+            return msg.replaceAll(" ", ".")
+                    .replace("{0}", "param1")
+                    .replace("{1}", "param2")
+                    .replace("{2}", "param3")
+                    .replace("{3}", "param4")
+                    .replace("{4}", "param5")
+                    .replace("{5}", "param6")
+                    .toLowerCase()
+                    ;
     }
 }

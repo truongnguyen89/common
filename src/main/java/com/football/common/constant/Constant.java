@@ -449,4 +449,23 @@ public interface Constant {
         }
     }
 
+    interface RESOURCE {
+        interface KEY {
+
+            public static final String NOT_AVAILABLE = "param1.is.not.available";
+            public static final String IS_NULL = "param1.is.null";
+            public static final String IS_EXISTS = "param1.is.exists";
+            public static final String NOT_FOUND = "param1.not.found";
+            public static final String INACTIVE = "param1.inactive";
+            public static final String INVALID = "param1.invalid";
+
+            public static final String NOT_AVAILABLE_FIELD_OF_OBJECT = "param1.of.param2.is.not.available";
+            public static final String IS_NULL_FIELD_OF_OBJECT = "param1.of.param2.is.null";
+            public static final String IS_EXISTS_FIELD_OF_OBJECT = "param1.of.param2.is.exists";
+            public static final String NOT_FOUND_FIELD_OF_OBJECT = "param1.of.param2.not.found";
+            public static final String INACTIVE_FIELD_OF_OBJECT = "param1.of.param2.inactive";
+            public static final String INVALID_FIELD_OF_OBJECT = "param1.of.param2.invalid";
+        }
+    }
+
 }
