@@ -1,13 +1,10 @@
 package com.football.common.cache;
 
 import com.football.common.constant.Constant;
-import com.football.common.crypt.RSA;
-import com.football.common.model.account.Account;
-import com.football.common.model.agent.Agent;
-import com.football.common.model.api.Api;
+import com.football.common.model.auth.Role;
+import com.football.common.model.auth.Token;
 import com.football.common.model.param.Param;
 import com.football.common.model.param.ParamKey;
-import com.football.common.model.role.Roles;
 import com.football.common.response.Response;
 import com.football.common.util.ArrayListCommon;
 import com.football.common.util.StringCommon;
@@ -27,20 +24,10 @@ import java.util.Map;
 
 public class Cache {
     public static Map<MultiKey, String> paramMap;
-    public static Map<String, Agent> agentMap;
-    public static Map<String, Account> accountMap;
-    public static List<Api> apiList;
-    public static Map<MultiKey, Roles> rolesMap;
+    public static Map<MultiKey, Token> tokenMap;
+    public static Map<Long, String> roleMap; //Key = roleId, value = roleCode
+    public static Map<String, String> roleUserMap; //Key = userName, value = roleCode
 
-    public static void reloadParams(List<Param> paramList,
-                                    List<Agent> agentList,
-                                    List<Api> apiList,
-                                    List<Roles> rolesList) {
-        setParamCache(paramList);
-        setAgentCache(agentList);
-        setApiListCache(apiList);
-        setRolesCache(rolesList);
-    }
 
     public static Response setParamCache(List<Param> paramList) {
         if (ArrayListCommon.isNullOrEmpty(paramList))
@@ -54,45 +41,38 @@ public class Cache {
         return Response.OK;
     }
 
-    public static Response setRolesCache(List<Roles> rolesList) {
-        if (ArrayListCommon.isNullOrEmpty(rolesList))
+    public static Response setTokenCache(List<Token> tokenList) {
+        if (ArrayListCommon.isNullOrEmpty(tokenList))
             return Response.BAD_REQUEST;
-        Map<MultiKey, Roles> rolesTmp = new HashMap<>();
-        for (Roles roles : rolesList) {
-            if (roles.getStatus() == Constant.STATUS_OBJECT.ACTIVE)
-                rolesTmp.put(new MultiKey(roles.getAgentId(), roles.getApiId()), roles);
+        Map<MultiKey, Token> tokenTmp = new HashMap<>();
+        for (Token token : tokenList) {
+            if (token.getStatus() == Constant.STATUS_OBJECT.ACTIVE)
+                tokenTmp.put(new MultiKey(token.getUserId(), token.getToken()), token);
         }
-        rolesMap = rolesTmp;
+        tokenMap = tokenTmp;
         return Response.OK;
     }
 
-    public static Response setAgentCache(List<Agent> agentList) {
-        if (ArrayListCommon.isNullOrEmpty(agentList))
+    public static Response setRoleCache(List<Role> roleList) {
+        if (ArrayListCommon.isNullOrEmpty(roleList))
             return Response.BAD_REQUEST;
-        Map<String, Agent> agentTmp = new HashMap<>();
-        for (Agent a : agentList) {
-            if (a != null && !StringCommon.isNullOrBlank(a.getCode()) && a.getStatus() == Constant.STATUS_OBJECT.ACTIVE) {
-                if (a.getPublicKeyCrypt() == null && !StringCommon.isNullOrBlank(a.getPublicKey()))
-                    a.setPublicKeyCrypt(RSA.getPublicKeyFromString(a.getPublicKey()));
-                if (a.getPrivateKeyCrypt() == null && !StringCommon.isNullOrBlank(a.getPrivateKey()))
-                    a.setPrivateKeyCrypt(RSA.getPrivateKeyFromString(a.getPrivateKey()));
-                agentTmp.put(a.getCode(), a);
-            }
+        Map<Long, String> roleTmp = new HashMap<>();
+        for (Role role : roleList) {
+            roleTmp.put(role.getId(), role.getCode());
         }
-        agentMap = agentTmp;
+        roleMap = roleTmp;
         return Response.OK;
     }
 
-    public static Response setAccountCache(List<Account> accountList) {
-        if (ArrayListCommon.isNullOrEmpty(accountList))
-            return Response.BAD_REQUEST;
-        Map<String, Account> accountTmp = new HashMap<>();
-        for (Account a : accountList) {
-            accountTmp.put(a.getEdong(), a);
-        }
-        accountMap = accountTmp;
-        return Response.OK;
+    public static Token getTokenFromCache(long userId, String tokenValue) {
+        Token token = null;
+        if (tokenMap == null || tokenMap.isEmpty() || StringCommon.isNullOrBlank(tokenValue))
+            return token;
+        else
+            return tokenMap.get(new MultiKey(userId, tokenValue));
     }
+
+    public static String getRoleCodeFromCache()
 
     public static List<Param> getListParamFromCache(String type) {
         List<Param> paramList = new ArrayList<>();
@@ -161,7 +141,4 @@ public class Cache {
         }
     }
 
-    public static void setApiListCache(List<Api> apiList) {
-        Cache.apiList = apiList;
-    }
 }

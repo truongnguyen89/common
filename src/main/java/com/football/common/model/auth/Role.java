@@ -1,4 +1,4 @@
-package com.football.common.model.role;
+package com.football.common.model.auth;
 
 import com.football.common.constant.Constant;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -9,28 +9,37 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = Constant.TABLE.ROLES)
+@Table(name = Constant.TABLE.ROLE)
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
-public class Roles {
+public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_ROLES)
-    @SequenceGenerator(schema = Constant.SCHEMA.ESTORE, name = Constant.SEQUENCE.SQ_ROLES, sequenceName = Constant.SEQUENCE.SQ_ROLES, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
-    @Column(name = "n_agent_id")
-    private Long agentId;
-    @Column(name = "n_api_id")
-    private Long apiId;
-    @Column(name = "N_STATUS")
+    @Column(name = "s_code")
+    private String code;
+    @Column(name = "s_name")
+    private String name;
+    @Column(name = "n_status")
     private Integer status;
-    @Column(name = "D_CREATED_AT")
+    @Column(name = "d_created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
-    @Column(name = "D_UPDATED_AT")
+    @Column(name = "d_updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date updatedAt;
+
+    @PrePersist
+    public void setCreatedAt() {
+        this.createdAt = new Date();
+    }
+
+    @PreUpdate
+    public void setUpdatedAt() {
+        this.updatedAt = new Date();
+    }
 
     public Long getId() {
         return id;
@@ -40,20 +49,20 @@ public class Roles {
         this.id = id;
     }
 
-    public Long getAgentId() {
-        return agentId;
+    public String getCode() {
+        return code;
     }
 
-    public void setAgentId(Long agentId) {
-        this.agentId = agentId;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Long getApiId() {
-        return apiId;
+    public String getName() {
+        return name;
     }
 
-    public void setApiId(Long apiId) {
-        this.apiId = apiId;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getStatus() {
@@ -78,15 +87,5 @@ public class Roles {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    @PrePersist
-    public void setCreatedAt() {
-        this.createdAt = new Date();
-    }
-
-    @PreUpdate
-    public void setUpdatedAt() {
-        this.updatedAt = new Date();
     }
 }

@@ -39,6 +39,8 @@ public class User {
     private String address;
     @Column(name = "n_type")
     private Integer type;
+    @Column(name = "n_role_id")
+    private Integer roleId;
     @Column(name = "n_status")
     private Integer status;
     @Column(name = "d_created_at")
@@ -47,6 +49,21 @@ public class User {
     @Column(name = "d_updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date updatedAt;
+
+    public User() {
+    }
+
+    public User(String username, String password, String name, String email, String phone, String address, Integer type, Integer status) {
+
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.type = type;
+        this.status = status;
+    }
 
     public Long getId() {
         return id;
@@ -146,18 +163,11 @@ public class User {
         this.updatedAt = new Date();
     }
 
-    public User() {
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public User(String username, String password, String name, String email, String phone, String address, Integer type, Integer status) {
-
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.type = type;
-        this.status = status;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }

@@ -122,7 +122,7 @@ public interface Constant {
             public static final String ONE_SIGNAL = "ONE_SIGNAL";
             public static final String AGENT = "AGENT";
             public static final String API = "API";
-            public static final String ROLES = "ROLES";
+            public static final String ROLES = "ROLE";
             public static final String USER = "USER";
             public static final String STADIUM = "STADIUM";
             public static final String SUB_STADIUM = "SUB_STADIUM";
@@ -242,7 +242,8 @@ public interface Constant {
         public static final String PARAM = "params";
         public static final String AGENT = "agent";
         public static final String API = "api";
-        public static final String ROLES = "roles";
+        public static final String ROLE = "role";
+        public static final String TOKEN = "token";
         public static final String USER = "user";
         public static final String STADIUM = "stadium";
         public static final String SUB_STADIUM = "sub_stadium";

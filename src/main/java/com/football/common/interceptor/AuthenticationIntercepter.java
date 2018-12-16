@@ -93,14 +93,14 @@ public class AuthenticationIntercepter implements HandlerInterceptor {
 //                    validateUri = (api.getStatus() == Constant.STATUS_OBJECT.ACTIVE) && uri.contains(api.getUrl()) && (method.equals(api.getMethod()));
 //                    //Neu tim thay uri thi check tiep quyen cua agent co duoc phep truy cap ?
 //                    if (validateUri) {
-//                        Roles roles = Cache.rolesMap.get(new MultiKey(agent.getId(), api.getId()));
+//                        Role roles = Cache.rolesMap.get(new MultiKey(agent.getId(), api.getId()));
 //                        if (roles == null) {
 //                            LOGGER.error("[ERROR] Agent " + agent.getCode() + " not permission method " + api.getMethod() + " uri " + api.getUrl());
 //                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
 //                            response.getWriter().write("Agent " + agent.getCode() + " not permission method " + api.getMethod() + " uri " + api.getUrl());
 //                            return false;
 //                        } else if (roles.getStatus() != Constant.STATUS_OBJECT.ACTIVE) {
-//                            LOGGER.error("[ERROR] Roles Agent " + agent.getCode() + " call method " + api.getMethod() + " uri " + api.getUrl() + " inactive");
+//                            LOGGER.error("[ERROR] Role Agent " + agent.getCode() + " call method " + api.getMethod() + " uri " + api.getUrl() + " inactive");
 //                            response.setStatus(HttpStatus.UNAUTHORIZED.value());
 //                            response.getWriter().write("Agent " + agent.getCode() + " not permission method " + api.getMethod() + " uri " + api.getUrl());
 //                            return false;

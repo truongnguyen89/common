@@ -1,20 +1,13 @@
 package com.football.common.feign;
 
 import com.football.common.constant.Constant;
-import com.football.common.model.account.Account;
-import com.football.common.model.agent.Agent;
-import com.football.common.model.api.Api;
-import com.football.common.model.customer.CustomerBillFinance;
-import com.football.common.model.customer.CustomerFinance;
 import com.football.common.model.param.Param;
-import com.football.common.model.role.Roles;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * Created by IntelliJ IDEA.
