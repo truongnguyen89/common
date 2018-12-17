@@ -3,6 +3,7 @@ package com.football.common.model.user;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.football.common.constant.Constant;
+import com.football.common.model.auth.Role;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -170,4 +171,7 @@ public class User {
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
+
+    @Transient
+    private Role role;
 }

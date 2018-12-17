@@ -5,6 +5,7 @@ import com.football.common.model.auth.Role;
 import com.football.common.model.auth.Token;
 import com.football.common.model.param.Param;
 import com.football.common.model.param.ParamKey;
+import com.football.common.model.user.User;
 import com.football.common.response.Response;
 import com.football.common.util.ArrayListCommon;
 import com.football.common.util.StringCommon;
@@ -24,10 +25,9 @@ import java.util.Map;
 
 public class Cache {
     public static Map<MultiKey, String> paramMap;
-    public static Map<MultiKey, Token> tokenMap;
+    public static Map<String, Token> tokenMap;
     public static Map<Long, String> roleMap; //Key = roleId, value = roleCode
-    public static Map<String, String> roleUserMap; //Key = userName, value = roleCode
-
+    public static Map<String, User> userMap;
 
     public static Response setParamCache(List<Param> paramList) {
         if (ArrayListCommon.isNullOrEmpty(paramList))
@@ -44,10 +44,10 @@ public class Cache {
     public static Response setTokenCache(List<Token> tokenList) {
         if (ArrayListCommon.isNullOrEmpty(tokenList))
             return Response.BAD_REQUEST;
-        Map<MultiKey, Token> tokenTmp = new HashMap<>();
+        Map<String, Token> tokenTmp = new HashMap<>();
         for (Token token : tokenList) {
             if (token.getStatus() == Constant.STATUS_OBJECT.ACTIVE)
-                tokenTmp.put(new MultiKey(token.getUserId(), token.getToken()), token);
+                tokenTmp.put(token.getToken(), token);
         }
         tokenMap = tokenTmp;
         return Response.OK;
@@ -64,22 +64,38 @@ public class Cache {
         return Response.OK;
     }
 
-    public static Token getTokenFromCache(long userId, String tokenValue) {
+    public static Response setUserCache(List<User> userList) {
+        if (ArrayListCommon.isNullOrEmpty(userList))
+            return Response.BAD_REQUEST;
+        Map<String, User> userTmp = new HashMap<>();
+        for (User user : userList) {
+            userTmp.put(user.getUsername(), user);
+        }
+        userMap = userTmp;
+        return Response.OK;
+    }
+
+    public static Token getTokenFromCache(String tokenValue) {
         Token token = null;
         if (tokenMap == null || tokenMap.isEmpty() || StringCommon.isNullOrBlank(tokenValue))
             return token;
         else
-            return tokenMap.get(new MultiKey(userId, tokenValue));
+            return tokenMap.get(tokenValue);
     }
 
-    public static String getRoleCodeFromCache()
+    public static String getRoleCodeFromCache(long roleId) {
+        if (roleMap == null || roleMap.isEmpty())
+            return null;
+        else
+            return roleMap.get(roleId);
+    }
 
     public static List<Param> getListParamFromCache(String type) {
         List<Param> paramList = new ArrayList<>();
         if (paramMap == null
                 || paramMap.isEmpty()
                 || StringCommon.isNullOrBlank(type)
-        ) {
+                ) {
             return paramList;
         } else {
             type = type.trim().toUpperCase();
@@ -101,7 +117,7 @@ public class Cache {
                 || paramMap.isEmpty()
                 || StringCommon.isNullOrBlank(type)
                 || StringCommon.isNullOrBlank(code)
-        ) {
+                ) {
             return null;
         } else {
             MultiKey multiKey = new MultiKey(type, code);
