@@ -28,6 +28,7 @@ public class Cache {
     public static Map<String, Token> tokenMap;
     public static Map<Long, String> roleMap; //Key = roleId, value = roleCode
     public static Map<String, User> userMap;
+    public static List<User> userList;
 
     public static Response setParamCache(List<Param> paramList) {
         if (ArrayListCommon.isNullOrEmpty(paramList))
@@ -64,11 +65,12 @@ public class Cache {
         return Response.OK;
     }
 
-    public static Response setUserCache(List<User> userList) {
-        if (ArrayListCommon.isNullOrEmpty(userList))
+    public static Response setUserCache(List<User> users) {
+        userList = users;
+        if (ArrayListCommon.isNullOrEmpty(users))
             return Response.BAD_REQUEST;
         Map<String, User> userTmp = new HashMap<>();
-        for (User user : userList) {
+        for (User user : users) {
             userTmp.put(user.getUsername(), user);
         }
         userMap = userTmp;
