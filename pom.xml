@@ -27,14 +27,6 @@
 
     <dependencies>
         <!--<<<<<<<<<<<<<<<<<<<<<<<<<BEGIN POM COMMON>>>>>>>>>>>>>>>>>>>>>>>>>-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
