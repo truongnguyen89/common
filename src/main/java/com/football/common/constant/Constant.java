@@ -420,6 +420,17 @@ public interface Constant {
         }
     }
 
+    interface BOOKING {
+        interface STATUS {
+            public static final int NEW = 1;
+            public static final int WAITING_CONFIRM = 2;
+            public static final int BOOKED = 3;
+            public static final int CANCEL = 4;
+            public static final int REFUSE = 5;
+            public static final int REJECT = 6;
+        }
+    }
+
     interface USER {
         interface TYPE {
             public static final int ADMIN = 1;
