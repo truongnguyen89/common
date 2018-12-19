@@ -15,8 +15,7 @@ import java.util.Date;
         allowGetters = true)
 public class Api {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_API)
-    @SequenceGenerator(schema = Constant.SCHEMA.ESTORE, name = Constant.SEQUENCE.SQ_API, sequenceName = Constant.SEQUENCE.SQ_API, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "S_URL")

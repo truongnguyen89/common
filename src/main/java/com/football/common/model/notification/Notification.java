@@ -15,8 +15,7 @@ import java.util.Date;
         allowGetters = true)
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_NOTIFICATION)
-    @SequenceGenerator(schema = Constant.SCHEMA.ENOTIFICATION, name = Constant.SEQUENCE.SQ_NOTIFICATION, sequenceName = Constant.SEQUENCE.SQ_NOTIFICATION, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "s_title")

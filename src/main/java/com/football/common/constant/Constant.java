@@ -270,22 +270,6 @@ public interface Constant {
         public static final String WEATHER_INFO = "weather_info";
     }
 
-    //Declare SEQUENCE used in the DATABASE
-    interface SEQUENCE {
-        public static final String SQ_AGENT = "sq_agent";
-        public static final String SQ_API = "sq_api";
-        public static final String SQ_ROLES = "sq_roles";
-        public static final String SQ_LOG = "sq_log";
-        public static final String SQ_NOTIFICATION_QUEUE = "sq_notification_queue";
-        public static final String SQ_NOTIFICATION_LOG = "sq_notification_log";
-        public static final String SQ_NOTIFICATION = "sq_notification";
-        public static final String SQ_DEVICE = "sq_device";
-        public static final String SQ_APP = "sq_app";
-        public static final String SQ_EMAIL = "sq_email";
-        public static final String SQ_ACCOUNT_APP_DEVICE = "sq_account_app_device";
-        public static final String SQ_ACCOUNT = "sq_account";
-    }
-
     //Declare schema used in the DATABASE
     interface SCHEMA {
         public static final String ESTORE = "estore";
@@ -387,7 +371,8 @@ public interface Constant {
         interface STATUS {
             public static final int NEW = 0;
             public static final int SENT = 1;
-            public static final int ERROR = -1;
+            public static final int ERROR = 2;
+            public static final int WAIT = 3;
         }
     }
 

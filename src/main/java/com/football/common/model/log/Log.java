@@ -25,8 +25,7 @@ import java.util.Date;
         allowGetters = true)
 public class Log {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_LOG)
-    @SequenceGenerator(schema = Constant.SCHEMA.ECPAY_LOG, name = Constant.SEQUENCE.SQ_LOG, sequenceName = Constant.SEQUENCE.SQ_LOG, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
 

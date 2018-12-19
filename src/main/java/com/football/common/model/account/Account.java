@@ -20,8 +20,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_ACCOUNT)
-    @SequenceGenerator(schema = Constant.SCHEMA.ENOTIFICATION, name = Constant.SEQUENCE.SQ_ACCOUNT, sequenceName = Constant.SEQUENCE.SQ_ACCOUNT, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "n_parent_id")

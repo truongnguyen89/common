@@ -22,8 +22,7 @@ import java.util.Date;
         allowGetters = true)
 public class AccountAppDevice {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_ACCOUNT_APP_DEVICE)
-    @SequenceGenerator(schema = Constant.SCHEMA.ENOTIFICATION, name = Constant.SEQUENCE.SQ_ACCOUNT_APP_DEVICE, sequenceName = Constant.SEQUENCE.SQ_ACCOUNT_APP_DEVICE, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "s_edong")

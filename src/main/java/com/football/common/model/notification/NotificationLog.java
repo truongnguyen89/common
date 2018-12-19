@@ -22,8 +22,7 @@ import java.util.Date;
         allowGetters = true)
 public class NotificationLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_NOTIFICATION_LOG)
-    @SequenceGenerator(schema = Constant.SCHEMA.ENOTIFICATION, name = Constant.SEQUENCE.SQ_NOTIFICATION_LOG, sequenceName = Constant.SEQUENCE.SQ_NOTIFICATION_LOG, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "n_queue_id")
@@ -37,7 +36,7 @@ public class NotificationLog {
     @Column(name = "s_description")
     private String description;
     @Column(name = "d_created_at")
-    @JsonFormat(pattern = Constant.DATE.FORMAT.FULL_DATE_SSS)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE_SSS, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
     @Column(name = "n_duration")
     private Long duration;

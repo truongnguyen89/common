@@ -21,8 +21,7 @@ import java.security.PublicKey;
 @EntityListeners(AuditingEntityListener.class)
 public class Agent {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = Constant.SEQUENCE.SQ_AGENT)
-    @SequenceGenerator(schema = Constant.SCHEMA.ESTORE, name = Constant.SEQUENCE.SQ_AGENT, sequenceName = Constant.SEQUENCE.SQ_AGENT, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "n_id")
     private Long id;
     @Column(name = "s_code", nullable = false)
