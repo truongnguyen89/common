@@ -396,6 +396,14 @@ public interface Constant {
         }
     }
 
+    interface DEVICE {
+        interface STATUS {
+            public static final int OFFLINE = 2;
+            public static final int ONLINE = 1;
+            public static final int INACTIVE = 0;
+        }
+    }
+
     interface MATCH {
         interface STATUS {
             public static final int FREE = 1;
