@@ -329,10 +329,10 @@ public interface Constant {
 
     interface FEIGN_CLIENT {
         public static final String SERVICE_CATEGORY = "category";
-        public static final String SERVICE_DATABASE = "ecpay-database";
-        public static final String SERVICE_FINANCE = "ecpay-finance";
-        public static final String ECPAY_SCHEDULER = "ecpay-scheduler";
-        public static final String SERVICE_NOTIFICATION = "ecpay-notification";
+        public static final String SERVICE_DATABASE = "database";
+        public static final String SERVICE_FINANCE = "finance";
+        public static final String ECPAY_SCHEDULER = "scheduler";
+        public static final String SERVICE_NOTIFICATION = "notification";
 
     }
 
