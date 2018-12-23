@@ -14,6 +14,6 @@ CREATE TABLE `booking` (
   `d_updated_at` datetime,
   PRIMARY KEY (`n_id`),
   CONSTRAINT `booking_player_fk` FOREIGN KEY (`n_player_id`) REFERENCES `user` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `booking_match_fk` FOREIGN KEY (`n_match_id`) REFERENCES `match` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `booking_match_fk` FOREIGN KEY (`n_match_id`) REFERENCES `matchs` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `booking_created_fk` FOREIGN KEY (`n_created_user_id`) REFERENCES `user` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

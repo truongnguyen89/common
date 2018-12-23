@@ -51,5 +51,5 @@ CREATE TABLE `notification_log` (
   `d_created_at` datetime NOT NULL,
   `n_duration` int(7) COMMENT 'so ml nhan kq tu onesignal',
   PRIMARY KEY (`n_id`),
-  CONSTRAINT `notification_log_queue_fk` FOREIGN KEY (`n_queue_id`) REFERENCES `queue` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `notification_log_queue_fk` FOREIGN KEY (`n_queue_id`) REFERENCES `notification_queue` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

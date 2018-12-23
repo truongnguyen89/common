@@ -138,6 +138,8 @@ public interface Constant {
             public static final String DEVICE = "DEVICE";
             public static final String APP = "APP";
             public static final String OPEN_WEATHER = "OPEN_WEATHER";
+            public static final String NOTIFICATION_TO_MANAGER_WHEN_BOOKING = "NOTIFICATION_TO_MANAGER_WHEN_BOOKING";
+            public static final String NOTIFICATION_UNSUBSCRIBE_OTHER = "NOTIFICATION_UNSUBSCRIBE_OTHER";
         }
 
         interface CODE {
@@ -157,6 +159,8 @@ public interface Constant {
             public static final String PORT = "PORT";
             public static final String SUBJECT = "SUBJECT";
             public static final String MESSAGE = "MESSAGE";
+            public static final String TITLE = "TITLE";
+            public static final String CONTENT = "CONTENT";
             public static final String TO_MAIL_DEFAUL = "TO_MAIL_DEFAUL";
             public static final String ROWNUM_IN_SHEET = "ROWNUM_IN_SHEET";
             public static final String CLIENT_ID = "CLIENT_ID";
@@ -250,7 +254,7 @@ public interface Constant {
         public static final String BOOKING = "booking";
         public static final String BOOKING_LOG = "booking_log";
         public static final String MATCH_SCHEDULE = "match_schedule";
-        public static final String MATCH = "match";
+        public static final String MATCH = "matchs";
         public static final String LOG = "log";
         public static final String NOTIFICATION_CATEGORY = "notification_category";
         public static final String NOTIFICATION = "notification";
@@ -272,7 +276,7 @@ public interface Constant {
     //Declare FUNCTIONS used in the DATABASE
     interface FUNCTIONS {
 
-        public static final String GET_MANAGER_BY_MATCH = "{? = call get_manager_by_match( ?)}";
+//        public static final String GET_MANAGER_BY_MATCH = "{? = call get_manager_by_match( ?)}";
     }
 
     //Declare PROCEDURES used in the DATABASE
@@ -408,6 +412,9 @@ public interface Constant {
             public static final String NOT_FOUND_FIELD_OF_OBJECT = "param1.of.param2.not.found";
             public static final String INACTIVE_FIELD_OF_OBJECT = "param1.of.param2.inactive";
             public static final String INVALID_FIELD_OF_OBJECT = "param1.of.param2.invalid";
+            public static final String BOOKING = "booking";
+            public static final String TITLE = "title";
+            public static final String CONTENT = "content";
         }
     }
 

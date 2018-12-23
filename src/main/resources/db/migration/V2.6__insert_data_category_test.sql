@@ -66,6 +66,19 @@ INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created
 VALUES('OPEN_WEATHER','TIME_OUT','Timeout','10000',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('OPEN_WEATHER','CONNECTION_TIME_OUT','Connect timeout','10000',1,sysdate());
+
+/*---param thong bao gui cho quan ly san bong khi co dat san moi---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('NOTIFICATION_TO_MANAGER_WHEN_BOOKING','TITLE','[{0}] Có booking mới','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('NOTIFICATION_TO_MANAGER_WHEN_BOOKING','CONTENT','Thông báo cho booking mới có nội dung : \nNgười chơi\n{0}\nThông tin booking\n{1}\nNgười đặt\n{2}\n','1',1,sysdate());
+
+/*---param thong bao gui cho thiet bi login truoc do va co thiet bi login moi tren 1 user---*/
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('NOTIFICATION_UNSUBSCRIBE_OTHER','TITLE','Thông báo login thiết bị mới','1',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('NOTIFICATION_UNSUBSCRIBE_OTHER','CONTENT','Tài khoản của bạn đã được login tại thiết bị mới có id = {0}','1',1,sysdate());
+
 /*---stadium---*/
 INSERT INTO `stadium` (`s_name`,`s_address`,`s_email`,`s_phone`,`s_longitude`,`s_latitude`,`n_count_sub_stadium`,`n_type`,`n_status`,`d_created_at`,`d_updated_at`)
 VALUES ('Sân bóng Thành Phát','Hoàng Minh Giám','thanhphat@gmail.com','0989666777','21.898989','105.787878',4,1,1,sysdate(),NULL);
@@ -105,13 +118,13 @@ VALUES ('20:30','22:00',3,1,sysdate());
 INSERT INTO `match_schedule` (`s_start_time`,`s_end_time`,`n_type`,`n_status`,`d_created_at`)
 VALUES ('22:00','23:30',3,1,sysdate());
 /*---match---*/
-INSERT INTO `match` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
+INSERT INTO `matchs` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
 VALUES (3,2,800000,1,1,sysdate());
-INSERT INTO `match` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
+INSERT INTO `matchs` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
 VALUES (3,2,600000,2,1,sysdate());
-INSERT INTO `match` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
+INSERT INTO `matchs` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
 VALUES (2,3,500000,1,1,sysdate());
-INSERT INTO `match` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
+INSERT INTO `matchs` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type`,`n_status`,`d_created_at`)
 VALUES (2,4,400000,2,1,sysdate());
 /*---commit---*/
 commit;

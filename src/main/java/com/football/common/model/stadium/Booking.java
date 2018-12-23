@@ -3,6 +3,8 @@ package com.football.common.model.stadium;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.football.common.constant.Constant;
+import com.football.common.model.match.Match;
+import com.football.common.model.user.User;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -39,6 +41,25 @@ public class Booking {
     @Column(name = "d_updated_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date updatedAt;
+    @Transient
+    private User player;
+    @Transient
+    private User creater;
+    @Transient
+    private Match match;
+
+    public Booking() {
+    }
+
+    public Booking(Long playerId, Long matchId, Date matchDay, Integer type, Integer status, Long createdUserId, String comment) {
+        this.playerId = playerId;
+        this.matchId = matchId;
+        this.matchDay = matchDay;
+        this.type = type;
+        this.status = status;
+        this.createdUserId = createdUserId;
+        this.comment = comment;
+    }
 
     public Long getId() {
         return id;
@@ -130,16 +151,27 @@ public class Booking {
         this.updatedAt = new Date();
     }
 
-    public Booking() {
+    public User getPlayer() {
+        return player;
     }
 
-    public Booking(Long playerId, Long matchId, Date matchDay, Integer type, Integer status, Long createdUserId, String comment) {
-        this.playerId = playerId;
-        this.matchId = matchId;
-        this.matchDay = matchDay;
-        this.type = type;
-        this.status = status;
-        this.createdUserId = createdUserId;
-        this.comment = comment;
+    public void setPlayer(User player) {
+        this.player = player;
+    }
+
+    public User getCreater() {
+        return creater;
+    }
+
+    public void setCreater(User creater) {
+        this.creater = creater;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
     }
 }
