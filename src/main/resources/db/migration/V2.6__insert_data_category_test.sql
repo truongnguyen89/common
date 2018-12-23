@@ -42,6 +42,9 @@ INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created
 VALUES('GMAIL','ACCOUNT','Tài khoản gmail gửi','ecpay.it',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('GMAIL','PASS','Mật khẩu tài khoản gmail gửi','Ecpayit2017',1,sysdate());
+INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
+VALUES('EMAIL','FROM_MAIL_DEFAUL','Tài khoản email gửi đi mặc định','ecpay.it@gmail.com',1,sysdate());
+
 /*---booking.type---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('BOOKING','TYPE_PLAYER_BOOKING','Người chơi đặt sân','1',1,sysdate());
