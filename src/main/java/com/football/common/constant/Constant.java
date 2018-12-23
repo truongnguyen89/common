@@ -5,7 +5,6 @@ package com.football.common.constant;
  */
 public interface Constant {
     //file config in lib_common
-    public static final String FILE_CONFIG = "config_common.properties";
     public static final String UTF_8 = "UTF-8";
     public static final String EMPTY = "";
 
@@ -270,54 +269,10 @@ public interface Constant {
         public static final String WEATHER_INFO = "weather_info";
     }
 
-    //Declare schema used in the DATABASE
-    interface SCHEMA {
-        public static final String ESTORE = "estore";
-        public static final String ECPAY_LOG = "ecpay_log";
-        public static final String ENOTIFICATION = "enotification";
-    }
-
-    //Declare PACKAGE used in the DATABASE
-    interface PACKAGE {
-        interface PKG_ESTORE_VALIDATE {
-
-            public static final String PRO_CHECK_TRANS = "{call pkg_estore_validate.check_trans (?, ?, ?, ?, ?, ?, ?, ?, ?)}";
-            public static final String FCN_CHECK_LOGIN = "{? = call pkg_estore_validate.check_login (?, ?, ?, ?, ?, ?)}";
-        }
-    }
-
-    interface PKG_ESTORE_COMMON {
-
-        public static final String FCN_GET_PARAMS = "{? = call pkg_estore_common.get_params( ?, ?, ?, ?)}";
-    }
-
-    interface PKG_ESTORE_FINANCE {
-
-        public static final String PRO_MERGE_CUSTOMER = "{call pkg_estore_finance.merge_customer (?, ?, ?, ?, ?, ?, ?, ?, ?)}";
-        public static final String FCN_GET_LIST_CUSTOMER = "{? = call pkg_estore_finance.get_list_customer (?, ?, ?, ?, ?, ?, ?)}";
-    }
-
-    //Declare PACKAGE used in the DATABASE eNotification
-    interface PKG_ENOTIFICATION_NOTIFICATION {
-
-        public static final String PRO_SAVE_NOTIFICATION_QUEUE = "{call pkg_enotification_notification.save_notification_queue (?, ?, ?, ?, ?)}";
-        public static final String FCN_GET_NOTIFICATION_QUEUE_TO_SEND = "{? = call pkg_enotification_notification.get_notification_queue_to_send (?)}";
-        public static final String FCN_GET_NOTIFICATION_BY_EDONG = "{? = call pkg_enotification_notification.get_notification_by_edong (?,?,?)}";
-        public static final String FCN_GET_NOTIFY_BY_EDONG_GET_PAGE = "{? = call pkg_enotification_notification.get_notify_by_edong_get_page (?,?,?,?)}";
-        public static final String FCN_UPDATE_ACCOUNT_APP_DIVCE = "{call pkg_enotification_notification.update_account_app_device (?,?,?,?,?,?)}";
-        public static final String FCN_UPDATE_NOTIFICATION_QUEUE = "{call pkg_enotification_notification.update_notification_queue (?,?,?,?)}";
-
-    }
-
-    interface PKG_ENOTIFICATION_LOGIN {
-
-        public static final String PRO_LOGOUT_EDONG_DEVICE_OTHER = "{call pkg_enotification_login.logout_edong_device_other (?, ?, ?, ?)}";
-    }
-
     //Declare FUNCTIONS used in the DATABASE
     interface FUNCTIONS {
 
-        public static final String GET_REGION_ID = "{? = call get_region_id( ?)}";
+        public static final String GET_MANAGER_BY_MATCH = "{? = call get_manager_by_match( ?)}";
     }
 
     //Declare PROCEDURES used in the DATABASE
@@ -336,29 +291,12 @@ public interface Constant {
 
     }
 
-    interface EPAY {
-        public static final String CLIENT_ID = "ClientId";
-        public static final String REQUEST_DATA = "RequestData";
-        public static final String REQUEST_TIME = "RequestTime";
-        public static final String SIGNATURE = "Signature";
-        public static final String OPERATION = "Operation";
-        public static final String FINANCIAL_CODE = "FinancialCode";
-        public static final String CONTRACT_NO = "ContractNo";
-        public static final String ID_NO = "IdNo";
-        public static final String RESPONSE_OK = "0";
-    }
-
     interface STATUS_BILL {
 
         public static final int ERR = -1;
         public static final int UNPAID = 0;
         public static final int PAID = 1;
         public static final int OFFLINE = 2;
-    }
-
-    interface BRIDGE {
-        public static final String EPAY_FINANCE = "EPAY_FINANCE";
-        public static final String VIETTEL_PAY = "VIETTEL_PAY";
     }
 
     interface NOTIFICATION {
