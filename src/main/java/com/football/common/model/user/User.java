@@ -27,7 +27,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "n_id", nullable = false)
+    @Column(name = "n_id")
     private Long id;
     @Column(name = "s_password")
     @JsonIgnore
