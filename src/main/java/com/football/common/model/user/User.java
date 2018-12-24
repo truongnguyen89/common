@@ -1,6 +1,7 @@
 package com.football.common.model.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.football.common.constant.Constant;
 import com.football.common.model.auth.Role;
@@ -17,22 +18,23 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = Constant.TABLE.USER)
+@Table(name = Constant.TABLE.USER, uniqueConstraints = {
+        @UniqueConstraint(columnNames = "s_email")
+})
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "n_id")
+    @Column(name = "n_id", nullable = false)
     private Long id;
-    @Column(name = "s_username")
-    private String username;
     @Column(name = "s_password")
+    @JsonIgnore
     private String password;
-    @Column(name = "s_name")
+    @Column(name = "s_name", nullable = false)
     private String name;
-    @Column(name = "s_email")
+    @Column(name = "s_email", nullable = false)
     private String email;
     @Column(name = "s_phone")
     private String phone;
@@ -42,8 +44,16 @@ public class User {
     private Integer type;
     @Column(name = "n_role_id")
     private Integer roleId;
-    @Column(name = "n_status")
+    @Column(name = "n_status", nullable = false)
     private Integer status;
+    @Column(name = "b_email_verified", nullable = false)
+    private Boolean emailVerified = false;
+    @Column(name = "s_image_Url")
+    private String imageUrl;
+    @Column(name = "s_provider", nullable = false)
+    private String provider;
+    @Column(name = "s_provider_id")
+    private String providerId;
     @Column(name = "d_created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.DATE.FORMAT.FULL_DATE, timezone = "Asia/Ho_Chi_Minh")
     private Date createdAt;
@@ -54,9 +64,8 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String name, String email, String phone, String address, Integer type, Integer status) {
+    public User(String email, String password, String name, String phone, String address, Integer type, Integer status) {
 
-        this.username = username;
         this.password = password;
         this.name = name;
         this.email = email;
@@ -72,14 +81,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
@@ -152,6 +153,38 @@ public class User {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Boolean getEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(Boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
     }
 
     @PrePersist

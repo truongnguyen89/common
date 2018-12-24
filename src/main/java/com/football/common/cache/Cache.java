@@ -71,7 +71,7 @@ public class Cache {
             return Response.BAD_REQUEST;
         Map<String, User> userTmp = new HashMap<>();
         for (User user : users) {
-            userTmp.put(user.getUsername(), user);
+            userTmp.put(user.getEmail(), user);
         }
         userMap = userTmp;
         return Response.OK;
