@@ -6,17 +6,6 @@ VALUES ('USER', 'User', '1', sysdate());
 INSERT INTO role (`s_code`, `s_name`, `n_status`, `d_created_at`)
 VALUES ('MANAGER', 'Manager', '1', sysdate());
 
-/*---user---*/
-INSERT INTO user (`s_provider`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `n_role_id`, `d_created_at`)
-VALUES ('local', '$2a$10$UG6216D09ShICr1.i.zccez0f/6eP3pEoDvEE/9g/NjaVAGoWO5Oy', 'Nguyễn Quang Trường', 'truongnq@gmail.com', '0962266682', 'Hà Nội', '1', '1', 1, sysdate());
-INSERT INTO user (`s_provider`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `n_role_id`, `d_created_at`)
-VALUES ('local', '$2a$10$UG6216D09ShICr1.i.zccez0f/6eP3pEoDvEE/9g/NjaVAGoWO5Oy', 'Nguyễn Quang Trường', 'truongnq@gmail.com', '0962266682', 'Hà Nội', '1', '1', 1, sysdate());
-INSERT INTO user (`s_provider`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `n_role_id`, `d_created_at`)
-VALUES ('local', '$2a$10$UG6216D09ShICr1.i.zccez0f/6eP3pEoDvEE/9g/NjaVAGoWO5Oy', 'Nguyễn Quang Trường 2', 'truongnq2@gmail.com', '0962266682', 'Hà Nội', '1', '1', 2, sysdate());
-INSERT INTO user (`s_provider`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `n_role_id`, `d_created_at`)
-VALUES ('local', '$2a$10$UG6216D09ShICr1.i.zccez0f/6eP3pEoDvEE/9g/NjaVAGoWO5Oy', 'Nguyễn Quang Trường 3', 'truongnq3@gmail.com', '0962266682', 'Hà Nội', '1', '1', 2, sysdate());
-INSERT INTO user (`s_provider`, `s_password`, `s_name`, `s_email`, `s_phone`, `s_address`, `n_type`, `n_status`, `n_role_id`, `d_created_at`)
-VALUES ('local', '$2a$10$UG6216D09ShICr1.i.zccez0f/6eP3pEoDvEE/9g/NjaVAGoWO5Oy', 'Nguyễn Quang Trường 4', 'truongnq4@gmail.com', '0962266682', 'Hà Nội', '1', '1', 3, sysdate());
 /*---params---*/
 /*---Cau hinh cho cac column cua bang user---*/
 /*---Co import data test---*/
@@ -102,15 +91,6 @@ INSERT INTO `sub_stadium` (`n_stadium_id`,`s_number`,`n_length`,`n_width`,`n_typ
 VALUES (3,'4',40,20,1,1,sysdate(),NULL);
 INSERT INTO `sub_stadium` (`n_stadium_id`,`s_number`,`n_length`,`n_width`,`n_type`,`n_status`,`d_created_at`,`d_updated_at`)
 VALUES (2,'1',40,20,1,1,sysdate(),NULL);
-/*---stadium_manager---*/
-INSERT INTO `stadium_manager` (`n_user_id`,`n_stadium_id`,`n_type`,`n_status`,`d_created_at`)
-VALUES (2,2,1,1,sysdate());
-INSERT INTO `stadium_manager` (`n_user_id`,`n_stadium_id`,`n_type`,`n_status`,`d_created_at`)
-VALUES (2,2,2,1,sysdate());
-INSERT INTO `stadium_manager` (`n_user_id`,`n_stadium_id`,`n_type`,`n_status`,`d_created_at`)
-VALUES (3,3,1,1,sysdate());
-INSERT INTO `stadium_manager` (`n_user_id`,`n_stadium_id`,`n_type`,`n_status`,`d_created_at`)
-VALUES (3,4,2,1,sysdate());
 /*---match_schedule---*/
 INSERT INTO `match_schedule` (`s_start_time`,`s_end_time`,`n_type`,`n_status`,`d_created_at`)
 VALUES ('17:30','19:00',2,1,sysdate());

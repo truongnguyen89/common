@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.football.common.constant.Constant;
-import com.football.common.model.auth.Role;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -42,8 +41,6 @@ public class User {
     private String address;
     @Column(name = "n_type")
     private Integer type;
-    @Column(name = "n_role_id")
-    private Integer roleId;
     @Column(name = "n_status", nullable = false)
     private Integer status;
     @Column(name = "b_email_verified", nullable = false)
@@ -197,14 +194,4 @@ public class User {
         this.updatedAt = new Date();
     }
 
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
-
-    @Transient
-    private Role role;
 }
