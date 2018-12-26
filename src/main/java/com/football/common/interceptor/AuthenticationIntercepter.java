@@ -25,6 +25,10 @@ public class AuthenticationIntercepter implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+        if (request.getRequestURI().toLowerCase().contains("swagger")
+                || request.getRequestURI().toLowerCase().contains("error")
+                )//Neu la request tu swagger thi bo qua
+            return true;
 //        if (request.getRequestURI().toLowerCase().contains("swagger") || request.getRequestURI().toLowerCase().contains("error"))
 //            return true;
 //        //validate agent
