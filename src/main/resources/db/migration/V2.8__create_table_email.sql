@@ -1,5 +1,5 @@
 USE football;
-DROP TABLE IF EXISTS `email`;
+
 CREATE TABLE `email` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_from_adress` varchar(50) COMMENT 'dia chi gui mail',

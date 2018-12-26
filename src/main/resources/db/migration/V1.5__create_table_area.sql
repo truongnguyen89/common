@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `area`;
 CREATE TABLE `area` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_city_provincial_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi tinh thanh',

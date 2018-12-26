@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `stadium_manager`;
 CREATE TABLE `stadium_manager` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_user_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi user, nguoi quan ly san bong',

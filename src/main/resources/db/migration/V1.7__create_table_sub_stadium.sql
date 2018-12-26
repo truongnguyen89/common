@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `sub_stadium`;
 CREATE TABLE `sub_stadium` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_stadium_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi stadium',

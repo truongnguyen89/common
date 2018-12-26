@@ -246,6 +246,10 @@ public interface Constant {
         public static final String AGENT = "agent";
         public static final String API = "api";
         public static final String ROLE = "role";
+        public static final String USER_ROLE = "user_role";
+        public static final String GROUP_ROLE = "group_role";
+        public static final String USER_GROUP_ROLE = "user_group_role";
+        public static final String GROUP_ROLE_MAP = "group_role_map";
         public static final String TOKEN = "token";
         public static final String USER = "user";
         public static final String STADIUM = "stadium";

@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `booking`;
 CREATE TABLE `booking` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_player_id` bigint(11) NOT NULL COMMENT 'id cua nguoi thue san',

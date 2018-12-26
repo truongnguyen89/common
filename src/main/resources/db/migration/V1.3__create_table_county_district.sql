@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `county_district`;
 CREATE TABLE `county_district` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_code` varchar(10) NOT NULL COMMENT 'ma quan huyen',

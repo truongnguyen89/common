@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `stadium`;
 CREATE TABLE `stadium` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ten san bong da',

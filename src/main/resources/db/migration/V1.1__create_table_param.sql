@@ -1,5 +1,5 @@
 USE football;
-DROP TABLE IF EXISTS `params`;
+
 CREATE TABLE `params` (
     `s_type` VARCHAR(200) NOT NULL COMMENT 'loai tham so',
     `s_code` VARCHAR(200) NOT NULL DEFAULT '1' COMMENT 'ma tham so',

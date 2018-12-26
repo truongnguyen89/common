@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `city_provincial`;
 CREATE TABLE `city_provincial` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_code` varchar(10) NOT NULL COMMENT 'ma tinh thanh pho',

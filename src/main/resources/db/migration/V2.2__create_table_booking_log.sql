@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `booking_log`;
 CREATE TABLE `booking_log` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_booking_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi booking',

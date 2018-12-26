@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_code` varchar(50) NOT NULL COMMENT 'ma role',
@@ -11,7 +10,6 @@ CREATE TABLE `role` (
   PRIMARY KEY (`n_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_email` varchar(100) COMMENT 'email',
@@ -30,7 +28,6 @@ CREATE TABLE `user` (
   PRIMARY KEY (`n_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_user_id` bigint(11) COMMENT 'id cua ban ghi user, nguoi quan ly san bong',
@@ -44,7 +41,6 @@ CREATE TABLE `user_role` (
   CONSTRAINT `user_role_role_fk` FOREIGN KEY (`n_role_id`) REFERENCES `role` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `group_role`;
 CREATE TABLE `group_role` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_code` varchar(50) NOT NULL COMMENT 'ma group role',
@@ -55,7 +51,6 @@ CREATE TABLE `group_role` (
   PRIMARY KEY (`n_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `group_role_map`;
 CREATE TABLE `group_role_map` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_group_role_id` bigint(11) COMMENT 'id cua ban ghi group_role',
@@ -68,7 +63,6 @@ CREATE TABLE `group_role_map` (
   CONSTRAINT `map_role_fk` FOREIGN KEY (`n_role_id`) REFERENCES `role` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `user_group_role`;
 CREATE TABLE `user_group_role` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_user_id` bigint(11) COMMENT 'id cua ban ghi user, nguoi quan ly san bong',
@@ -81,7 +75,6 @@ CREATE TABLE `user_group_role` (
   CONSTRAINT `user_group_role_fk` FOREIGN KEY (`n_group_role_id`) REFERENCES `group_role` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `token`;
 CREATE TABLE `token` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_user_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi user',

@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `match_schedule`;
 CREATE TABLE `match_schedule` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_start_time` varchar(5) NOT NULL COMMENT 'khung gio bat dau tran dau, dinh dang HH:mi',

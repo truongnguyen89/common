@@ -1,8 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `weather_local`;
-DROP TABLE IF EXISTS `weather_info`;
-
 CREATE TABLE `weather_local` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_open_weather_id` bigint(11) NOT NULL COMMENT 'id cua city tu openweathermap.org',

@@ -1,6 +1,5 @@
 USE football;
 
-DROP TABLE IF EXISTS `device`;
 CREATE TABLE `device` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_user_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi user, nguoi quan ly san bong',
@@ -13,8 +12,6 @@ CREATE TABLE `device` (
   CONSTRAINT `device_user_fk` FOREIGN KEY (`n_user_id`) REFERENCES `user` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-DROP TABLE IF EXISTS `notification`;
 CREATE TABLE `notification` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `s_title` varchar(200) NOT NULL COLLATE utf8_unicode_ci COMMENT 'tieu de thong bao',
@@ -26,8 +23,6 @@ CREATE TABLE `notification` (
   PRIMARY KEY (`n_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-DROP TABLE IF EXISTS `notification_queue`;
 CREATE TABLE `notification_queue` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_notification_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi notification',
@@ -40,7 +35,6 @@ CREATE TABLE `notification_queue` (
   CONSTRAINT `notification_queue_device_fk` FOREIGN KEY (`n_device_id`) REFERENCES `device` (`n_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS `notification_log`;
 CREATE TABLE `notification_log` (
   `n_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `n_queue_id` bigint(11) NOT NULL COMMENT 'id cua ban ghi notification_queue',
