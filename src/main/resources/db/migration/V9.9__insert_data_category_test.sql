@@ -28,9 +28,9 @@ VALUES('PRICE','TOI','Giá buổi tối','700000',1,sysdate());
 /*---Cau hinh cho cac column cua bang booking---*/
 /*---Cau hinh tai khoan Gmail gui di---*/
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('GMAIL','ACCOUNT','Tài khoản gmail gửi','ecpay.it',1,sysdate());
+VALUES('GMAIL','ACCOUNT','Tài khoản gmail gửi','noreply.booking.sport',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
-VALUES('GMAIL','PASS','Mật khẩu tài khoản gmail gửi','Ecpayit2017',1,sysdate());
+VALUES('GMAIL','PASS','Mật khẩu tài khoản gmail gửi','December.28.2018',1,sysdate());
 INSERT INTO `params` (`s_type`,`s_code`,`s_name`,`s_value`,`n_status`,`d_created_at`)
 VALUES('EMAIL','FROM_MAIL_DEFAUL','Tài khoản email gửi đi mặc định','ecpay.it@gmail.com',1,sysdate());
 
