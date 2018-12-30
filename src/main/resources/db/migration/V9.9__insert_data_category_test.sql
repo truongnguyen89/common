@@ -111,19 +111,19 @@ INSERT INTO `matchs` (`n_sub_stadium_id`,`n_match_schedule_id`,`n_price`,`n_type
 VALUES (2,4,400000,2,1,sysdate());
 /*---role---*/
 INSERT INTO `role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('PLAYER', 'Quyền cho người thuê sân', 1,sysdate());
+VALUES ('ROLE_USER', 'Quyền cho người thuê sân', 1,sysdate());
 INSERT INTO `role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('MANAGER', 'Quyền cho người quản lý sân', 1,sysdate());
+VALUES ('ROLE_MANAGER', 'Quyền cho người quản lý sân', 1,sysdate());
 INSERT INTO `role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('ADMIN', 'Quyền cho Admin', 1,sysdate());
+VALUES ('ROLE_ADMIN', 'Quyền cho Admin', 1,sysdate());
 
 /*---group_role---*/
 INSERT INTO `group_role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('PLAYER', 'Nhóm quyền cho người thuê sân', 1,sysdate());
+VALUES ('GROUP_ROLE_USER', 'Nhóm quyền cho người thuê sân', 1,sysdate());
 INSERT INTO `group_role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('MANAGER', 'Nhóm quyền cho người quản lý sân', 1,sysdate());
+VALUES ('GROUP_ROLE_MANAGER', 'Nhóm quyền cho người quản lý sân', 1,sysdate());
 INSERT INTO `group_role` (`s_code`, `s_name`, `n_status`,`d_created_at`)
-VALUES ('ADMIN', 'Nhóm quyền cho Admin', 1,sysdate());
+VALUES ('GROUP_ROLE_ADMIN', 'Nhóm quyền cho Admin', 1,sysdate());
 
 /*---commit---*/
 commit;
